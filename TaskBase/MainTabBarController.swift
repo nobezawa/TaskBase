@@ -16,13 +16,15 @@ final class MainTabBarController: UITabBarController {
         let taskListViewController = TaskListViewController()
         taskListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.bookmarks, tag: 1)
         controllers.append(taskListViewController)
-        
+
         let searchListViewController = SearchListViewController()
         searchListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.search, tag: 2)
         controllers.append(searchListViewController)
 
-
-        self.setViewControllers(controllers, animated: false)
+        self.setViewControllers(
+            controllers.map{ UINavigationController(rootViewController: $0) },
+            animated: false
+        )
         self.selectedIndex = 1
         self.selectedIndex = 0
     }
