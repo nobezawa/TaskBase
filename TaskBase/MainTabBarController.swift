@@ -23,7 +23,7 @@ final class MainTabBarController: UITabBarController {
         controllers.append(searchListViewController)
 
         self.setViewControllers(
-            controllers,
+            controllers.map { UINavigationController(rootViewController: $0) },
             animated: false
         )
         self.selectedIndex = 1
