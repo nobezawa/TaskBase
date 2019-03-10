@@ -17,13 +17,39 @@
                     <view key="view" contentMode="scaleToFill" id="N8q-U8-zmp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bkZ-Zd-NDj">
+                                <rect key="frame" x="20" y="50" width="335" height="617"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyTaskCell" id="3y7-xo-oJw">
+                                        <rect key="frame" x="0.0" y="28" width="335" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3y7-xo-oJw" id="vb5-Ll-LKW">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="twx-p5-g5J" id="Npf-dl-iMf"/>
+                                    <outlet property="delegate" destination="twx-p5-g5J" id="JPG-QW-GXF"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bkZ-Zd-NDj" firstAttribute="bottom" secondItem="6ul-qP-lp1" secondAttribute="bottom" id="D6f-ep-ArO"/>
+                            <constraint firstItem="bkZ-Zd-NDj" firstAttribute="leading" secondItem="6ul-qP-lp1" secondAttribute="leading" constant="20" id="Kyt-q8-8EV"/>
+                            <constraint firstItem="bkZ-Zd-NDj" firstAttribute="top" secondItem="6ul-qP-lp1" secondAttribute="top" constant="30" id="Uof-vy-Nsv"/>
+                            <constraint firstItem="6ul-qP-lp1" firstAttribute="trailing" secondItem="bkZ-Zd-NDj" secondAttribute="trailing" constant="20" id="m9c-0j-cbj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6ul-qP-lp1"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVG-eB-acr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-238" y="98"/>
+            <point key="canvasLocation" x="-239.19999999999999" y="97.601199400299862"/>
         </scene>
     </scenes>
 </document>

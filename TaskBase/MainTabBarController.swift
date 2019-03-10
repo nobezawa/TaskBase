@@ -10,19 +10,20 @@ import UIKit
 
 final class MainTabBarController: UITabBarController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         var controllers = [UIViewController]()
-        let taskListViewController = TaskListViewController()
+
+        let taskListViewController = VCFactory.create(for: .taskList)
         taskListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.bookmarks, tag: 1)
         controllers.append(taskListViewController)
 
-        let searchListViewController = SearchListViewController()
+        let searchListViewController = VCFactory.create(for: .searchList)
         searchListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.search, tag: 2)
         controllers.append(searchListViewController)
 
         self.setViewControllers(
-            controllers.map{ UINavigationController(rootViewController: $0) },
+            controllers,
             animated: false
         )
         self.selectedIndex = 1
