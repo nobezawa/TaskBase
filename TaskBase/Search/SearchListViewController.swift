@@ -8,23 +8,29 @@
 
 import UIKit
 
-final class SearchListViewController: UIViewController {
+final class SearchListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet weak var taskTableView: UITableView!
+    
+    let tasks = DemoSearchTaskModel.sample()
+    let cellId = "SearchListCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .blue
-        // Do any additional setup after loading the view.
+        let nib = UINib(nibName: cellId, bundle: nil)
+        taskTableView.register(nib, forCellReuseIdentifier: cellId)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tasks.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: SearchListCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SearchListCell
+        let data = tasks[indexPath.row]
+        
+        cell.titleLabel.text = data.title
+        cell.countLabel.text = "\(data.count)"
+        return cell
+    }
 }
