@@ -11,6 +11,11 @@ import UIKit
 final class SearchListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var taskTableView: UITableView!
+
+    @IBAction func categoryButtonTap(_ sender: Any) {
+        let vc = VCFactory.create(for: .filterCategory)
+        self.present(vc, animated: true, completion: nil)
+    }
     
     let tasks = DemoSearchTaskModel.sample()
     let cellId = "SearchListCell"

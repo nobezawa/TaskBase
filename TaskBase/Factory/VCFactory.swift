@@ -20,6 +20,7 @@ enum TypeOfViewController {
     case taskList
     case todoList
     case editTodo
+    case filterCategory
 }
 
 extension TypeOfViewController {
@@ -49,8 +50,13 @@ extension TypeOfViewController {
                 storyboardName: "EditTodoViewController",
                 storyboardId: "EditTodoViewController"
             )
+        case .filterCategory:
+            return StoryboardRepresentation(
+                bundle: nil,
+                storyboardName: "FilterCategoryViewController",
+                storyboardId: "FilterCategoryViewController"
+            )
         }
-        
     }
 }
 
