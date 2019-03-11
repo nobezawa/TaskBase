@@ -18,15 +18,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzt-N0-cZQ">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOy-0H-PQG">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="カテゴリ" id="EPF-2E-E7L">
+                                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="7Et-Jc-Ldf">
+                                            <connections>
+                                                <action selector="cancelButton:" destination="wOc-iS-8ee" id="DaZ-AY-2ci"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2PS-yC-vzZ">
+                                <rect key="frame" x="0.0" y="94" width="375" height="281"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCategoryCell" id="BUe-3l-NM0">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BUe-3l-NM0" id="oWl-hV-QT6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wOc-iS-8ee" id="CBJ-5B-ykv"/>
+                                    <outlet property="delegate" destination="wOc-iS-8ee" id="fPd-p6-jL5"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fg8-zV-XaP" firstAttribute="bottom" secondItem="2PS-yC-vzZ" secondAttribute="bottom" constant="292" id="9mc-PS-6Lu"/>
+                            <constraint firstItem="NOy-0H-PQG" firstAttribute="top" secondItem="fg8-zV-XaP" secondAttribute="top" id="DjJ-zp-fVi"/>
+                            <constraint firstItem="NOy-0H-PQG" firstAttribute="leading" secondItem="fg8-zV-XaP" secondAttribute="leading" id="IKX-uF-Abx"/>
+                            <constraint firstAttribute="trailing" secondItem="NOy-0H-PQG" secondAttribute="trailing" id="MZu-vQ-QEu"/>
+                            <constraint firstItem="2PS-yC-vzZ" firstAttribute="leading" secondItem="NOy-0H-PQG" secondAttribute="leading" id="hXt-uz-aQh"/>
+                            <constraint firstItem="fg8-zV-XaP" firstAttribute="trailing" secondItem="2PS-yC-vzZ" secondAttribute="trailing" id="vhD-Ph-K07"/>
+                            <constraint firstItem="2PS-yC-vzZ" firstAttribute="top" secondItem="NOy-0H-PQG" secondAttribute="bottom" constant="30" id="wmH-X8-oOG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fg8-zV-XaP"/>
                     </view>
                 </viewController>

@@ -12,6 +12,7 @@
 		6E5DDBE7223649EA004F2E65 /* SearchTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBE6223649EA004F2E65 /* SearchTaskModel.swift */; };
 		6E5DDBE922364F7C004F2E65 /* FilterCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBE822364F7C004F2E65 /* FilterCategoryViewController.swift */; };
 		6E5DDBEB22364F9A004F2E65 /* FilterCategoryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E5DDBEA22364F9A004F2E65 /* FilterCategoryViewController.storyboard */; };
+		6E5DDBED2236536E004F2E65 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBEC2236536E004F2E65 /* CategoryModel.swift */; };
 		6EA3DA3D223251A4000E1AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA3C223251A4000E1AAA /* AppDelegate.swift */; };
 		6EA3DA42223251A4000E1AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EA3DA40223251A4000E1AAA /* Main.storyboard */; };
 		6EA3DA45223251A4000E1AAA /* TaskBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA43223251A4000E1AAA /* TaskBase.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 		6E5DDBE6223649EA004F2E65 /* SearchTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTaskModel.swift; sourceTree = "<group>"; };
 		6E5DDBE822364F7C004F2E65 /* FilterCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategoryViewController.swift; sourceTree = "<group>"; };
 		6E5DDBEA22364F9A004F2E65 /* FilterCategoryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilterCategoryViewController.storyboard; sourceTree = "<group>"; };
+		6E5DDBEC2236536E004F2E65 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		6EA3DA39223251A4000E1AAA /* TaskBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA3DA3C223251A4000E1AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EA3DA41223251A4000E1AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				6E5DDBE6223649EA004F2E65 /* SearchTaskModel.swift */,
 				6E5DDBE822364F7C004F2E65 /* FilterCategoryViewController.swift */,
 				6E5DDBEA22364F9A004F2E65 /* FilterCategoryViewController.storyboard */,
+				6E5DDBEC2236536E004F2E65 /* CategoryModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				6EA3DA5A2233B19E000E1AAA /* SearchListViewController.swift in Sources */,
 				6EA3DA832234F51D000E1AAA /* VCFactory.swift in Sources */,
 				6EA3DA3D223251A4000E1AAA /* AppDelegate.swift in Sources */,
+				6E5DDBED2236536E004F2E65 /* CategoryModel.swift in Sources */,
 				6EBFC087223604230052A203 /* EditTodoViewController.swift in Sources */,
 				6EA3DA522233AA1E000E1AAA /* MainTabBarController.swift in Sources */,
 			);
