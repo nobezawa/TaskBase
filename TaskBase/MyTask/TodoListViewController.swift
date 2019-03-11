@@ -11,11 +11,14 @@ import UIKit
 class TodoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var titleLabel: UILabel!
-
+    @IBOutlet weak var todoTableView: UITableView!
+    
     let TODO = DemoMyTodo.sample()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let btn = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(editBtnClicked(sender:)))
+        self.navigationItem.rightBarButtonItem = btn
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,6 +33,11 @@ class TodoListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = VCFactory.create(for: .editTodo)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc internal func editBtnClicked(sender: UIButton) {
         let vc = VCFactory.create(for: .editTodo)
         self.navigationController?.pushViewController(vc, animated: true)
     }

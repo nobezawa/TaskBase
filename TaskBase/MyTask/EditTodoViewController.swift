@@ -16,6 +16,8 @@ class EditTodoViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let btn = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(finishBtnClicked(sender:)))
+        self.navigationItem.rightBarButtonItem = btn
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,6 +29,10 @@ class EditTodoViewController: UIViewController, UITableViewDelegate, UITableView
         // セルに表示する値を設定する
         cell.textLabel?.text = TODO[indexPath.row].title
         return cell
+    }
+    
+    @objc internal func finishBtnClicked(sender: UIButton) {
+        print("Finish Btn")
     }
 
 }
