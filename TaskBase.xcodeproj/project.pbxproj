@@ -74,7 +74,7 @@
 			children = (
 				6EA3DA812234F4DC000E1AAA /* Factory */,
 				6EA3DA582233B176000E1AAA /* Search */,
-				6EA3DA532233ABF9000E1AAA /* Task */,
+				6EA3DA532233ABF9000E1AAA /* MyTask */,
 				6EA3DA3C223251A4000E1AAA /* AppDelegate.swift */,
 				6EA3DA40223251A4000E1AAA /* Main.storyboard */,
 				6EA3DA46223251A7000E1AAA /* Assets.xcassets */,
@@ -86,7 +86,7 @@
 			path = TaskBase;
 			sourceTree = "<group>";
 		};
-		6EA3DA532233ABF9000E1AAA /* Task */ = {
+		6EA3DA532233ABF9000E1AAA /* MyTask */ = {
 			isa = PBXGroup;
 			children = (
 				6EA3DA542233AC48000E1AAA /* TaskListViewController.swift */,
@@ -95,7 +95,7 @@
 				6EA3DA8822351AE8000E1AAA /* TodoListViewController.storyboard */,
 				6EA3DA8A2235E017000E1AAA /* MyTask.swift */,
 			);
-			path = Task;
+			path = MyTask;
 			sourceTree = "<group>";
 		};
 		6EA3DA582233B176000E1AAA /* Search */ = {
