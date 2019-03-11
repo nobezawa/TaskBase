@@ -20,6 +20,7 @@
 		6EA3DA832234F51D000E1AAA /* VCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA822234F51D000E1AAA /* VCFactory.swift */; };
 		6EA3DA8722351AB4000E1AAA /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA8622351AB4000E1AAA /* TodoListViewController.swift */; };
 		6EA3DA8922351AE8000E1AAA /* TodoListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EA3DA8822351AE8000E1AAA /* TodoListViewController.storyboard */; };
+		6EA3DA8B2235E017000E1AAA /* MyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA8A2235E017000E1AAA /* MyTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		6EA3DA822234F51D000E1AAA /* VCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCFactory.swift; sourceTree = "<group>"; };
 		6EA3DA8622351AB4000E1AAA /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		6EA3DA8822351AE8000E1AAA /* TodoListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TodoListViewController.storyboard; sourceTree = "<group>"; };
+		6EA3DA8A2235E017000E1AAA /* MyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				6EA3DA562233AC7A000E1AAA /* TaskListViewController.storyboard */,
 				6EA3DA8622351AB4000E1AAA /* TodoListViewController.swift */,
 				6EA3DA8822351AE8000E1AAA /* TodoListViewController.storyboard */,
+				6EA3DA8A2235E017000E1AAA /* MyTask.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EA3DA8B2235E017000E1AAA /* MyTask.swift in Sources */,
 				6EA3DA45223251A4000E1AAA /* TaskBase.xcdatamodeld in Sources */,
 				6EA3DA8722351AB4000E1AAA /* TodoListViewController.swift in Sources */,
 				6EA3DA552233AC48000E1AAA /* TaskListViewController.swift in Sources */,

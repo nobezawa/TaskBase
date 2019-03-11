@@ -10,7 +10,7 @@ import UIKit
 
 final class TaskListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let TODO = ["牛乳を買う", "掃除をする", "アプリ開発の勉強をする"]
+    let TODO = DemoMyTask.sampleTask()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ final class TaskListViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyTaskCell", for: indexPath)
         // セルに表示する値を設定する
-        cell.textLabel?.text = TODO[indexPath.row]
+        cell.textLabel?.text = TODO[indexPath.row].title
         return cell
     }
     
