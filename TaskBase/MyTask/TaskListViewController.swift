@@ -14,7 +14,10 @@ final class TaskListViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+
+        let backBtn = UIBarButtonItem()
+        backBtn.title = ""
+        self.navigationItem.backBarButtonItem = backBtn
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

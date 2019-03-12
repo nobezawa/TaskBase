@@ -16,6 +16,10 @@ class ShareListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         let btn = UIBarButtonItem(title: "新規", style: .plain, target: self, action: #selector(createBtnClicked(sender:)))
         self.navigationItem.rightBarButtonItem = btn
+        
+        let backBtn = UIBarButtonItem()
+        backBtn.title = ""
+        self.navigationItem.backBarButtonItem = backBtn
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

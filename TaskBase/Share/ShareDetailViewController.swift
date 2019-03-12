@@ -17,6 +17,10 @@ class ShareDetailViewController: UIViewController, UITableViewDelegate, UITableV
 
         let btn = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(editBtnClicked(sender:)))
         self.navigationItem.rightBarButtonItem = btn
+        
+        let backBtn = UIBarButtonItem()
+        backBtn.title = ""
+        self.navigationItem.backBarButtonItem = backBtn
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

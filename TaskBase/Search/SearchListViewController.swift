@@ -24,6 +24,10 @@ final class SearchListViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         let nib = UINib(nibName: cellId, bundle: nil)
         taskTableView.register(nib, forCellReuseIdentifier: cellId)
+        
+        let backBtn = UIBarButtonItem()
+        backBtn.title = ""
+        self.navigationItem.backBarButtonItem = backBtn
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
