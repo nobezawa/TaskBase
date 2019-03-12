@@ -15,6 +15,11 @@
 		6E5DDBED2236536E004F2E65 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBEC2236536E004F2E65 /* CategoryModel.swift */; };
 		6E5DDBEF2237628A004F2E65 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBEE2237628A004F2E65 /* SearchDetailViewController.swift */; };
 		6E5DDBF12237629E004F2E65 /* SearchDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E5DDBF02237629E004F2E65 /* SearchDetailViewController.storyboard */; };
+		6E5DDBF422379479004F2E65 /* ShareListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBF322379479004F2E65 /* ShareListViewController.swift */; };
+		6E5DDBF6223794A4004F2E65 /* ShareListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E5DDBF5223794A4004F2E65 /* ShareListViewController.storyboard */; };
+		6E5DDBF8223797AC004F2E65 /* ShareTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBF7223797AC004F2E65 /* ShareTaskModel.swift */; };
+		6E5DDBFA223799C9004F2E65 /* ShareDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBF9223799C9004F2E65 /* ShareDetailViewController.swift */; };
+		6E5DDBFC223799F1004F2E65 /* ShareDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E5DDBFB223799F1004F2E65 /* ShareDetailViewController.storyboard */; };
 		6EA3DA3D223251A4000E1AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA3C223251A4000E1AAA /* AppDelegate.swift */; };
 		6EA3DA42223251A4000E1AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EA3DA40223251A4000E1AAA /* Main.storyboard */; };
 		6EA3DA45223251A4000E1AAA /* TaskBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA43223251A4000E1AAA /* TaskBase.xcdatamodeld */; };
@@ -43,6 +48,11 @@
 		6E5DDBEC2236536E004F2E65 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		6E5DDBEE2237628A004F2E65 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		6E5DDBF02237629E004F2E65 /* SearchDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchDetailViewController.storyboard; sourceTree = "<group>"; };
+		6E5DDBF322379479004F2E65 /* ShareListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareListViewController.swift; sourceTree = "<group>"; };
+		6E5DDBF5223794A4004F2E65 /* ShareListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShareListViewController.storyboard; sourceTree = "<group>"; };
+		6E5DDBF7223797AC004F2E65 /* ShareTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTaskModel.swift; sourceTree = "<group>"; };
+		6E5DDBF9223799C9004F2E65 /* ShareDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDetailViewController.swift; sourceTree = "<group>"; };
+		6E5DDBFB223799F1004F2E65 /* ShareDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShareDetailViewController.storyboard; sourceTree = "<group>"; };
 		6EA3DA39223251A4000E1AAA /* TaskBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA3DA3C223251A4000E1AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EA3DA41223251A4000E1AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +85,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E5DDBF222379454004F2E65 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				6E5DDBF322379479004F2E65 /* ShareListViewController.swift */,
+				6E5DDBF5223794A4004F2E65 /* ShareListViewController.storyboard */,
+				6E5DDBF7223797AC004F2E65 /* ShareTaskModel.swift */,
+				6E5DDBF9223799C9004F2E65 /* ShareDetailViewController.swift */,
+				6E5DDBFB223799F1004F2E65 /* ShareDetailViewController.storyboard */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
 		6EA3DA30223251A4000E1AAA = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				6EA3DA812234F4DC000E1AAA /* Factory */,
+				6E5DDBF222379454004F2E65 /* Share */,
 				6EA3DA582233B176000E1AAA /* Search */,
 				6EA3DA532233ABF9000E1AAA /* MyTask */,
 				6EA3DA3C223251A4000E1AAA /* AppDelegate.swift */,
@@ -214,6 +237,8 @@
 				6EA3DA47223251A7000E1AAA /* Assets.xcassets in Resources */,
 				6E5DDBE522363995004F2E65 /* SearchListCell.xib in Resources */,
 				6EA3DA42223251A4000E1AAA /* Main.storyboard in Resources */,
+				6E5DDBFC223799F1004F2E65 /* ShareDetailViewController.storyboard in Resources */,
+				6E5DDBF6223794A4004F2E65 /* ShareListViewController.storyboard in Resources */,
 				6EA3DA5C2233B1CA000E1AAA /* SearchListViewController.storyboard in Resources */,
 				6E5DDBEB22364F9A004F2E65 /* FilterCategoryViewController.storyboard in Resources */,
 			);
@@ -227,11 +252,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EA3DA8B2235E017000E1AAA /* MyTask.swift in Sources */,
+				6E5DDBFA223799C9004F2E65 /* ShareDetailViewController.swift in Sources */,
 				6E5DDBEF2237628A004F2E65 /* SearchDetailViewController.swift in Sources */,
 				6E5DDBE922364F7C004F2E65 /* FilterCategoryViewController.swift in Sources */,
+				6E5DDBF8223797AC004F2E65 /* ShareTaskModel.swift in Sources */,
 				6E5DDBE422363995004F2E65 /* SearchListCell.swift in Sources */,
 				6E5DDBE7223649EA004F2E65 /* SearchTaskModel.swift in Sources */,
 				6EBFC085223602860052A203 /* MyTodo.swift in Sources */,
+				6E5DDBF422379479004F2E65 /* ShareListViewController.swift in Sources */,
 				6EA3DA45223251A4000E1AAA /* TaskBase.xcdatamodeld in Sources */,
 				6EA3DA8722351AB4000E1AAA /* TodoListViewController.swift in Sources */,
 				6EA3DA552233AC48000E1AAA /* TaskListViewController.swift in Sources */,

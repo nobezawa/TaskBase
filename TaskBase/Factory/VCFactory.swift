@@ -18,10 +18,12 @@ struct StoryboardRepresentation {
 enum TypeOfViewController {
     case searchList
     case taskList
+    case shareList
     case todoList
     case editTodo
     case filterCategory
     case searchDetail
+    case shareDetail
 }
 
 extension TypeOfViewController {
@@ -38,6 +40,12 @@ extension TypeOfViewController {
                 bundle: nil,
                 storyboardName: "TaskListViewController",
                 storyboardId: "TaskListViewController"
+            )
+        case .shareList:
+            return StoryboardRepresentation(
+                bundle: nil,
+                storyboardName: "ShareListViewController",
+                storyboardId: "ShareListViewController"
             )
         case .todoList:
             return StoryboardRepresentation(
@@ -62,6 +70,12 @@ extension TypeOfViewController {
                 bundle: nil,
                 storyboardName: "SearchDetailViewController",
                 storyboardId: "SearchDetailViewController"
+            )
+        case .shareDetail:
+            return StoryboardRepresentation(
+                bundle: nil,
+                storyboardName: "ShareDetailViewController",
+                storyboardId: "ShareDetailViewController"
             )
         }
     }
