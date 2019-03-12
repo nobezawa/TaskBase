@@ -31,7 +31,8 @@ class ShareDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @objc private func editBtnClicked(sender: UIButton) {
-        print("Edit")
+        let vc = VCFactory.create(for: .editShare)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

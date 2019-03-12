@@ -24,6 +24,7 @@ enum TypeOfViewController {
     case filterCategory
     case searchDetail
     case shareDetail
+    case editShare
 }
 
 extension TypeOfViewController {
@@ -76,6 +77,12 @@ extension TypeOfViewController {
                 bundle: nil,
                 storyboardName: "ShareDetailViewController",
                 storyboardId: "ShareDetailViewController"
+            )
+        case .editShare:
+            return StoryboardRepresentation(
+                bundle: nil,
+                storyboardName: "EditShareViewController",
+                storyboardId: "EditShareViewController"
             )
         }
     }
