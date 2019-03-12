@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class TodoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var todoTableView: UITableView!

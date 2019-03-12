@@ -18,17 +18,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fo-jZ-X3s">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RB2-yz-EjK">
+                                <rect key="frame" x="30" y="40" width="315" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.83678729007267028" blue="0.075773395945607835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="g2p-lB-Vi1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="カテゴリ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="categoryButtonTap:" destination="aW4-QP-HjF" eventType="touchUpInside" id="kjG-jj-qBR"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-eR-U9S">
+                                <rect key="frame" x="30" y="110" width="315" height="527"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="aW4-QP-HjF" id="6sd-TJ-1LR"/>
+                                    <outlet property="delegate" destination="aW4-QP-HjF" id="rvF-yB-uTn"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MUZ-YB-uvt" firstAttribute="trailing" secondItem="RB2-yz-EjK" secondAttribute="trailing" constant="30" id="2xI-Tc-96U"/>
+                            <constraint firstItem="Gze-eR-U9S" firstAttribute="top" secondItem="RB2-yz-EjK" secondAttribute="bottom" constant="30" id="3Pl-rf-mRo"/>
+                            <constraint firstItem="RB2-yz-EjK" firstAttribute="top" secondItem="MUZ-YB-uvt" secondAttribute="top" constant="20" id="6UC-uv-Tf4"/>
+                            <constraint firstItem="Gze-eR-U9S" firstAttribute="leading" secondItem="MUZ-YB-uvt" secondAttribute="leading" constant="30" id="APP-g6-uBe"/>
+                            <constraint firstItem="RB2-yz-EjK" firstAttribute="leading" secondItem="MUZ-YB-uvt" secondAttribute="leading" constant="30" id="MwF-cp-ZdH"/>
+                            <constraint firstItem="MUZ-YB-uvt" firstAttribute="trailing" secondItem="Gze-eR-U9S" secondAttribute="trailing" constant="30" id="Pvp-y3-jb4"/>
+                            <constraint firstItem="MUZ-YB-uvt" firstAttribute="bottom" secondItem="Gze-eR-U9S" secondAttribute="bottom" constant="30" id="u2V-06-2pM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MUZ-YB-uvt"/>
                     </view>
+                    <connections>
+                        <outlet property="taskTableView" destination="Gze-eR-U9S" id="iXo-I9-C7s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRv-X2-qcQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
