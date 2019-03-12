@@ -14,7 +14,8 @@ class EditShareViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let btn = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(finishBtnClicked(sender:)))
+        self.navigationItem.rightBarButtonItem = btn
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,6 +26,10 @@ class EditShareViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "EditShareCell", for: indexPath)
         cell.textLabel?.text = todos[indexPath.row].title
         return cell
+    }
+    
+    @objc private func finishBtnClicked(sender: UIButton) {
+        print("finish!!")
     }
 
 }
