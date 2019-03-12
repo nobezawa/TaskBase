@@ -21,11 +21,16 @@ final class MainTabBarController: UITabBarController {
         let searchListViewController = VCFactory.create(for: .searchList)
         searchListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.search, tag: 2)
         controllers.append(searchListViewController)
+        
+        let shareListViewController = VCFactory.create(for: .shareList)
+        shareListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.contacts, tag: 3)
+        controllers.append(shareListViewController)
 
         self.setViewControllers(
             controllers.map { UINavigationController(rootViewController: $0) },
             animated: false
         )
+        self.selectedIndex = 2
         self.selectedIndex = 1
         self.selectedIndex = 0
     }

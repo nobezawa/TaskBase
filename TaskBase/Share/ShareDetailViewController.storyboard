@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1cj-tw-ZHf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Share Detail View Controller-->
+        <scene sceneID="KEB-d4-png">
+            <objects>
+                <viewController storyboardIdentifier="ShareDetailViewController" id="1cj-tw-ZHf" customClass="ShareDetailViewController" customModule="TaskBase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6AA-cz-WbM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確定申告のタスク" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4A-aj-P5h">
+                                <rect key="frame" x="30" y="49" width="139" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="青色申告をする際のタスクをまとめました" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAI-CF-cY2">
+                                <rect key="frame" x="30" y="90" width="315" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="es6-J1-6gy">
+                                <rect key="frame" x="30" y="129" width="315" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShareDetailCell" id="kca-xq-Klt">
+                                        <rect key="frame" x="0.0" y="28" width="315" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kca-xq-Klt" id="DXO-s9-vE6">
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1cj-tw-ZHf" id="jkQ-G2-nTd"/>
+                                    <outlet property="delegate" destination="1cj-tw-ZHf" id="U89-0U-wVe"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tGv-De-Jra" firstAttribute="trailing" secondItem="es6-J1-6gy" secondAttribute="trailing" constant="30" id="91z-mc-Ceo"/>
+                            <constraint firstItem="es6-J1-6gy" firstAttribute="top" secondItem="QAI-CF-cY2" secondAttribute="bottom" constant="24" id="FcA-dl-2NS"/>
+                            <constraint firstItem="V4A-aj-P5h" firstAttribute="top" secondItem="tGv-De-Jra" secondAttribute="top" constant="29" id="P3m-Re-ptx"/>
+                            <constraint firstItem="es6-J1-6gy" firstAttribute="leading" secondItem="QAI-CF-cY2" secondAttribute="leading" id="Pra-Y1-1Y3"/>
+                            <constraint firstItem="QAI-CF-cY2" firstAttribute="leading" secondItem="V4A-aj-P5h" secondAttribute="leading" id="S8y-44-PlK"/>
+                            <constraint firstItem="tGv-De-Jra" firstAttribute="bottom" secondItem="es6-J1-6gy" secondAttribute="bottom" constant="410" id="Wx3-Ru-jyG"/>
+                            <constraint firstItem="QAI-CF-cY2" firstAttribute="top" secondItem="V4A-aj-P5h" secondAttribute="bottom" constant="20" id="wVF-uh-QAa"/>
+                            <constraint firstItem="V4A-aj-P5h" firstAttribute="leading" secondItem="tGv-De-Jra" secondAttribute="leading" constant="30" id="xmy-Bk-Rig"/>
+                            <constraint firstItem="es6-J1-6gy" firstAttribute="trailing" secondItem="QAI-CF-cY2" secondAttribute="trailing" id="zxG-uK-Tt9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tGv-De-Jra"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OAs-ps-qnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30" y="80"/>
+        </scene>
+    </scenes>
+</document>
