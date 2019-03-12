@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="alN-dV-et0">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Detail View Controller-->
+        <scene sceneID="XCq-Rj-voO">
+            <objects>
+                <viewController storyboardIdentifier="SearchDetailViewController" id="alN-dV-et0" customClass="SearchDetailViewController" customModule="TaskBase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZOE-bM-pRS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="確定申告のタスク" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwL-a2-92V">
+                                <rect key="frame" x="30" y="50" width="131" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cBm-aR-SJe">
+                                <rect key="frame" x="30" y="508" width="315" height="129"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="129" id="MJl-GS-JVb"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchDetailCell" id="uGp-1T-lP6">
+                                        <rect key="frame" x="0.0" y="28" width="315" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uGp-1T-lP6" id="G7b-yN-IWf">
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="青色申告をする際のタスクをまとめました" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzD-eg-lT2">
+                                <rect key="frame" x="30" y="96" width="233" height="392"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="huf-9k-I3T" firstAttribute="trailing" secondItem="cBm-aR-SJe" secondAttribute="trailing" constant="30" id="40v-ec-cL4"/>
+                            <constraint firstItem="YzD-eg-lT2" firstAttribute="top" secondItem="JwL-a2-92V" secondAttribute="bottom" constant="26" id="Bfy-VX-iCG"/>
+                            <constraint firstItem="cBm-aR-SJe" firstAttribute="leading" secondItem="YzD-eg-lT2" secondAttribute="leading" id="Gss-uA-oOH"/>
+                            <constraint firstItem="JwL-a2-92V" firstAttribute="leading" secondItem="huf-9k-I3T" secondAttribute="leading" constant="30" id="OiK-A9-SiN"/>
+                            <constraint firstItem="cBm-aR-SJe" firstAttribute="leading" secondItem="JwL-a2-92V" secondAttribute="leading" id="afj-nw-r8q"/>
+                            <constraint firstItem="JwL-a2-92V" firstAttribute="top" secondItem="huf-9k-I3T" secondAttribute="top" constant="30" id="azs-Bm-4gX"/>
+                            <constraint firstItem="cBm-aR-SJe" firstAttribute="top" secondItem="YzD-eg-lT2" secondAttribute="bottom" constant="20" id="fJ8-al-vJP"/>
+                            <constraint firstItem="YzD-eg-lT2" firstAttribute="leading" secondItem="JwL-a2-92V" secondAttribute="leading" id="q4p-oF-2FF"/>
+                            <constraint firstItem="huf-9k-I3T" firstAttribute="bottom" secondItem="cBm-aR-SJe" secondAttribute="bottom" constant="30" id="xFj-Aw-qhG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="huf-9k-I3T"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailText" destination="YzD-eg-lT2" id="Z6l-Hm-8AJ"/>
+                        <outlet property="titleText" destination="JwL-a2-92V" id="drr-at-kjj"/>
+                        <outlet property="todoTableView" destination="cBm-aR-SJe" id="a5e-Aq-0Uj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ONA-hX-QCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-172" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>

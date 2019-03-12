@@ -38,4 +38,9 @@ final class SearchListViewController: UIViewController, UITableViewDelegate, UIT
         cell.countLabel.text = "\(data.count)"
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = VCFactory.create(for: .searchDetail)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

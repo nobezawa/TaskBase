@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditTodoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class EditTodoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var titleLabel: UILabel!
 
