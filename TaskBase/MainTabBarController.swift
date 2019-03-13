@@ -15,16 +15,20 @@ final class MainTabBarController: UITabBarController {
         var controllers = [UIViewController]()
 
         let taskListViewController = VCFactory.create(for: .taskList)
-        taskListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.bookmarks, tag: 1)
+        taskListViewController.tabBarItem = UITabBarItem(title: "タスク", image: UIImage(named: "task"), tag: 0)
         controllers.append(taskListViewController)
 
         let searchListViewController = VCFactory.create(for: .searchList)
-        searchListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.search, tag: 2)
+        searchListViewController.tabBarItem = UITabBarItem(title: "探す", image: UIImage(named: "search"), tag: 2)
         controllers.append(searchListViewController)
         
         let shareListViewController = VCFactory.create(for: .shareList)
-        shareListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.contacts, tag: 3)
+        shareListViewController.tabBarItem = UITabBarItem(title: "共有する", image: UIImage(named: "share"), tag: 3)
         controllers.append(shareListViewController)
+        
+        
+        self.tabBar.barTintColor = UIColor.baseYellow()
+        self.tabBar.tintColor = UIColor.textBlack()
 
         self.setViewControllers(
             controllers.map { UINavigationController(rootViewController: $0) },
