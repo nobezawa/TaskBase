@@ -11,13 +11,18 @@ import UIKit
 final class TaskListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let TODO = DemoMyTask.sampleTask()
-
+    let cellId = "ImageTextTableCell"
+    @IBOutlet weak var taskTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let backBtn = UIBarButtonItem()
         backBtn.title = ""
         self.navigationItem.backBarButtonItem = backBtn
+        
+        let nib = UINib(nibName: cellId, bundle: nil)
+        self.taskTableView.register(nib, forCellReuseIdentifier: cellId)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,9 +30,11 @@ final class TaskListViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyTaskCell", for: indexPath)
-        // セルに表示する値を設定する
-        cell.textLabel?.text = TODO[indexPath.row].title
+        let cell: ImageTextTableCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ImageTextTableCell
+        let data = TODO[indexPath.row]
+        
+        cell.titleLabel.text = data.title
+        cell.cellImage.image = UIImage(named: "uncheck_task")
         return cell
     }
     
