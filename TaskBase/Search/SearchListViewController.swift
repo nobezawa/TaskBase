@@ -28,6 +28,8 @@ final class SearchListViewController: UIViewController, UITableViewDelegate, UIT
         let backBtn = UIBarButtonItem()
         backBtn.title = ""
         self.navigationItem.backBarButtonItem = backBtn
+        
+        self.taskTableView.separatorColor = UIColor.baseYellow()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -27,16 +27,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aHA-tg-Huh">
                                 <rect key="frame" x="30" y="101" width="315" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditTodoCell" id="Bf7-Cl-Fea">
-                                        <rect key="frame" x="0.0" y="28" width="315" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bf7-Cl-Fea" id="JLp-lK-WOg">
-                                            <rect key="frame" x="0.0" y="0.0" width="315" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="ARS-ie-wM3" id="sw9-oW-N0C"/>
                                     <outlet property="delegate" destination="ARS-ie-wM3" id="4uB-ou-bLC"/>
@@ -55,6 +45,7 @@
                         <viewLayoutGuide key="safeArea" id="ThF-yC-NFW"/>
                     </view>
                     <connections>
+                        <outlet property="editTableView" destination="aHA-tg-Huh" id="n04-bG-Fua"/>
                         <outlet property="titleLabel" destination="u83-jA-zUT" id="FgE-9b-jP8"/>
                     </connections>
                 </viewController>

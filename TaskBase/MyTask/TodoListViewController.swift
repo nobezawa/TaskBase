@@ -14,6 +14,7 @@ final class TodoListViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var todoTableView: UITableView!
     
     let TODO = DemoMyTodo.sample()
+    let cellId = "ImageTextTableCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,9 @@ final class TodoListViewController: UIViewController, UITableViewDelegate, UITab
         let backBtn = UIBarButtonItem()
         backBtn.title = ""
         self.navigationItem.backBarButtonItem = backBtn
+        
+        let nib = UINib(nibName: cellId, bundle: nil)
+        self.todoTableView.register(nib, forCellReuseIdentifier: cellId)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,9 +34,11 @@ final class TodoListViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoListCell", for: indexPath)
-        // セルに表示する値を設定する
-        cell.textLabel?.text = TODO[indexPath.row].title
+        let cell: ImageTextTableCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ImageTextTableCell
+        let data = TODO[indexPath.row]
+
+        cell.titleLabel.text = data.title
+        cell.cellImage.image = UIImage(named: "uncheck_box")
         return cell
     }
     

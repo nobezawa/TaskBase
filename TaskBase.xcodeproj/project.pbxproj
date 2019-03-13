@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E2200F12239540000E459B7 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2200F02239540000E459B7 /* RxSwift.framework */; };
+		6E2200F4223954BF00E459B7 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2200F3223954BF00E459B7 /* RxCocoa.framework */; };
 		6E5DDBE422363995004F2E65 /* SearchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBE222363995004F2E65 /* SearchListCell.swift */; };
 		6E5DDBE522363995004F2E65 /* SearchListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E5DDBE322363995004F2E65 /* SearchListCell.xib */; };
 		6E5DDBE7223649EA004F2E65 /* SearchTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBE6223649EA004F2E65 /* SearchTaskModel.swift */; };
@@ -23,6 +25,8 @@
 		6E5DDBFE2237A08A004F2E65 /* EditShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBFD2237A08A004F2E65 /* EditShareViewController.swift */; };
 		6E5DDC002237A0C6004F2E65 /* EditShareViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E5DDBFF2237A0C6004F2E65 /* EditShareViewController.storyboard */; };
 		6E5DDC032237F6FB004F2E65 /* UIColor+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDC022237F6FB004F2E65 /* UIColor+extention.swift */; };
+		6E5DDC082238C3D8004F2E65 /* ImageTextTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDC062238C3D8004F2E65 /* ImageTextTableCell.swift */; };
+		6E5DDC092238C3D8004F2E65 /* ImageTextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E5DDC072238C3D8004F2E65 /* ImageTextTableCell.xib */; };
 		6EA3DA3D223251A4000E1AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA3C223251A4000E1AAA /* AppDelegate.swift */; };
 		6EA3DA42223251A4000E1AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EA3DA40223251A4000E1AAA /* Main.storyboard */; };
 		6EA3DA45223251A4000E1AAA /* TaskBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA43223251A4000E1AAA /* TaskBase.xcdatamodeld */; };
@@ -43,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E2200F02239540000E459B7 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		6E2200F3223954BF00E459B7 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		6E5DDBE222363995004F2E65 /* SearchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListCell.swift; sourceTree = "<group>"; };
 		6E5DDBE322363995004F2E65 /* SearchListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchListCell.xib; sourceTree = "<group>"; };
 		6E5DDBE6223649EA004F2E65 /* SearchTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTaskModel.swift; sourceTree = "<group>"; };
@@ -59,6 +65,8 @@
 		6E5DDBFD2237A08A004F2E65 /* EditShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditShareViewController.swift; sourceTree = "<group>"; };
 		6E5DDBFF2237A0C6004F2E65 /* EditShareViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditShareViewController.storyboard; sourceTree = "<group>"; };
 		6E5DDC022237F6FB004F2E65 /* UIColor+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extention.swift"; sourceTree = "<group>"; };
+		6E5DDC062238C3D8004F2E65 /* ImageTextTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextTableCell.swift; sourceTree = "<group>"; };
+		6E5DDC072238C3D8004F2E65 /* ImageTextTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTextTableCell.xib; sourceTree = "<group>"; };
 		6EA3DA39223251A4000E1AAA /* TaskBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA3DA3C223251A4000E1AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EA3DA41223251A4000E1AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,12 +93,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E2200F4223954BF00E459B7 /* RxCocoa.framework in Frameworks */,
+				6E2200F12239540000E459B7 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E2200EF2239540000E459B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E2200F3223954BF00E459B7 /* RxCocoa.framework */,
+				6E2200F02239540000E459B7 /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6E5DDBF222379454004F2E65 /* Share */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				6E5DDC022237F6FB004F2E65 /* UIColor+extention.swift */,
+				6E5DDC062238C3D8004F2E65 /* ImageTextTableCell.swift */,
+				6E5DDC072238C3D8004F2E65 /* ImageTextTableCell.xib */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -118,6 +139,7 @@
 			children = (
 				6EA3DA3B223251A4000E1AAA /* TaskBase */,
 				6EA3DA3A223251A4000E1AAA /* Products */,
+				6E2200EF2239540000E459B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +220,7 @@
 				6EA3DA35223251A4000E1AAA /* Sources */,
 				6EA3DA36223251A4000E1AAA /* Frameworks */,
 				6EA3DA37223251A4000E1AAA /* Resources */,
+				6E2200F22239542300E459B7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -253,6 +276,7 @@
 				6EA3DA8922351AE8000E1AAA /* TodoListViewController.storyboard in Resources */,
 				6EA3DA572233AC7A000E1AAA /* TaskListViewController.storyboard in Resources */,
 				6EA3DA47223251A7000E1AAA /* Assets.xcassets in Resources */,
+				6E5DDC092238C3D8004F2E65 /* ImageTextTableCell.xib in Resources */,
 				6E5DDBE522363995004F2E65 /* SearchListCell.xib in Resources */,
 				6EA3DA42223251A4000E1AAA /* Main.storyboard in Resources */,
 				6E5DDBFC223799F1004F2E65 /* ShareDetailViewController.storyboard in Resources */,
@@ -263,6 +287,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E2200F22239542300E459B7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6EA3DA35223251A4000E1AAA /* Sources */ = {
@@ -283,6 +329,7 @@
 				6EA3DA45223251A4000E1AAA /* TaskBase.xcdatamodeld in Sources */,
 				6EA3DA8722351AB4000E1AAA /* TodoListViewController.swift in Sources */,
 				6EA3DA552233AC48000E1AAA /* TaskListViewController.swift in Sources */,
+				6E5DDC082238C3D8004F2E65 /* ImageTextTableCell.swift in Sources */,
 				6EA3DA5A2233B19E000E1AAA /* SearchListViewController.swift in Sources */,
 				6EA3DA832234F51D000E1AAA /* VCFactory.swift in Sources */,
 				6EA3DA3D223251A4000E1AAA /* AppDelegate.swift in Sources */,
@@ -435,6 +482,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TaskBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,6 +503,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TaskBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
