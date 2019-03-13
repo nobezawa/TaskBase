@@ -18,6 +18,10 @@ final class EditTodoViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         let btn = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(finishBtnClicked(sender:)))
         self.navigationItem.rightBarButtonItem = btn
+        
+        let backBtn = UIBarButtonItem()
+        backBtn.title = ""
+        self.navigationItem.backBarButtonItem = backBtn
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

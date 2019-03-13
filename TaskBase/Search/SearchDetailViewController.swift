@@ -29,6 +29,10 @@ class SearchDetailViewController: UIViewController {
         
         let btn = UIBarButtonItem(title: "コピー", style: .plain, target: self, action: #selector(copyBtnClicked(sender:)))
         self.navigationItem.rightBarButtonItem = btn
+        
+        let backBtn = UIBarButtonItem()
+        backBtn.title = ""
+        self.navigationItem.backBarButtonItem = backBtn
     }
     
     @objc private func copyBtnClicked(sender: UIButton) {
