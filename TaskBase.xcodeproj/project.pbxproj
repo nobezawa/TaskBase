@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E2200F12239540000E459B7 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2200F02239540000E459B7 /* RxSwift.framework */; };
+		6E2200F4223954BF00E459B7 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2200F3223954BF00E459B7 /* RxCocoa.framework */; };
 		6E5DDBE422363995004F2E65 /* SearchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBE222363995004F2E65 /* SearchListCell.swift */; };
 		6E5DDBE522363995004F2E65 /* SearchListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E5DDBE322363995004F2E65 /* SearchListCell.xib */; };
 		6E5DDBE7223649EA004F2E65 /* SearchTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBE6223649EA004F2E65 /* SearchTaskModel.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E2200F02239540000E459B7 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		6E2200F3223954BF00E459B7 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		6E5DDBE222363995004F2E65 /* SearchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListCell.swift; sourceTree = "<group>"; };
 		6E5DDBE322363995004F2E65 /* SearchListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchListCell.xib; sourceTree = "<group>"; };
 		6E5DDBE6223649EA004F2E65 /* SearchTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTaskModel.swift; sourceTree = "<group>"; };
@@ -89,12 +93,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E2200F4223954BF00E459B7 /* RxCocoa.framework in Frameworks */,
+				6E2200F12239540000E459B7 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E2200EF2239540000E459B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E2200F3223954BF00E459B7 /* RxCocoa.framework */,
+				6E2200F02239540000E459B7 /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6E5DDBF222379454004F2E65 /* Share */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +139,7 @@
 			children = (
 				6EA3DA3B223251A4000E1AAA /* TaskBase */,
 				6EA3DA3A223251A4000E1AAA /* Products */,
+				6E2200EF2239540000E459B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,6 +220,7 @@
 				6EA3DA35223251A4000E1AAA /* Sources */,
 				6EA3DA36223251A4000E1AAA /* Frameworks */,
 				6EA3DA37223251A4000E1AAA /* Resources */,
+				6E2200F22239542300E459B7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -270,6 +287,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E2200F22239542300E459B7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6EA3DA35223251A4000E1AAA /* Sources */ = {
@@ -443,6 +482,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TaskBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -460,6 +503,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TaskBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
