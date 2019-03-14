@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class TaskListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let TODO = DemoMyTask.sampleTask()
     let cellId = "ImageTextTableCell"
     @IBOutlet weak var taskTableView: UITableView!
+
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +24,16 @@ final class TaskListViewController: UIViewController, UITableViewDelegate, UITab
         let backBtn = UIBarButtonItem()
         backBtn.title = ""
         self.navigationItem.backBarButtonItem = backBtn
-        
+
         let nib = UINib(nibName: cellId, bundle: nil)
         self.taskTableView.register(nib, forCellReuseIdentifier: cellId)
+
+        self.taskTableView.rx.itemSelected
+            .subscribe(onNext: { _  in
+                let vc = VCFactory.create(for: .todoList)
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,10 +47,5 @@ final class TaskListViewController: UIViewController, UITableViewDelegate, UITab
         cell.titleLabel.text = data.title
         cell.cellImage.image = UIImage(named: "uncheck_task")
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = VCFactory.create(for: .todoList)
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
