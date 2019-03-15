@@ -10,19 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-import Differentiator
-
-struct SectionMyTask {
-    var items: [Item]
-}
-
-extension SectionMyTask: SectionModelType {
-    typealias Item = MyTask
-    init(original: SectionMyTask, items: [Item]) {
-        self = original
-        self.items = items
-    }
-}
 
 final class TaskListViewController: UIViewController {
 
