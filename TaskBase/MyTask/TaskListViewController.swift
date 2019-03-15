@@ -13,10 +13,6 @@ import RxDataSources
 
 final class TaskListViewController: UIViewController {
 
-    var viewModel: TaskListViewModel?
-
-    let TODO = DemoMyTask.sampleTask()
-    let cellId = "ImageTextTableCell"
     @IBOutlet weak var taskTableView: UITableView! {
         didSet {
             let nib = UINib(nibName: cellId, bundle: nil)
@@ -24,6 +20,8 @@ final class TaskListViewController: UIViewController {
         }
     }
 
+    var viewModel: TaskListViewModel?
+    private let cellId = "ImageTextTableCell"
     private let disposeBag = DisposeBag()
     private var dataSource: RxTableViewSectionedReloadDataSource<SectionMyTask>?
     

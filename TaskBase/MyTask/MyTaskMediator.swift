@@ -8,9 +8,9 @@ import RxSwift
 
 protocol MyTaskMediatorProtocol {
     var store: [MyTask] { get set }
-    var subject: BehaviorSubject<[MyTask]> { get set }
     var controllers:[String: UIViewController] { get }
-
+    var subject: BehaviorSubject<[MyTask]> { get }
+    var currentMyTask: BehaviorSubject<MyTask?> { get }
     func nextVC(currentVCname: String) -> UIViewController?
     func rootVC() -> UIViewController
     //func updateStore(_ store: [MyTask])
@@ -20,12 +20,14 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
     var store: [MyTask]
     var subject: BehaviorSubject<[MyTask]>
     var controllers:[String: UIViewController]
+    var currentMyTask: BehaviorSubject<MyTask?>
 
     init() {
         let store =  DemoMyTask.sampleTask()
         self.store = store
         self.subject = BehaviorSubject(value: store)
         self.controllers = MyTaskMediator.initializeVC()
+        self.currentMyTask = BehaviorSubject(value: nil)
     }
 
     func prepare() {

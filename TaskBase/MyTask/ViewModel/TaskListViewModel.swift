@@ -27,7 +27,9 @@ final class TaskListViewModel: MyTaskViewModel {
     required init(mediator: MyTaskMediatorProtocol) {
         super.init(mediator: mediator)
 
-        let sections = [SectionMyTask(items: self.store)]
-        self.tasks = Observable.just(sections)
+        _ = mediator.subject.subscribe(onNext: { task in
+            let sections = [SectionMyTask(items: task)]
+            self.tasks = Observable.just(sections)
+        })
     }
 }

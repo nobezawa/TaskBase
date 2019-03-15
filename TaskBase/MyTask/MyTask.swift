@@ -7,13 +7,14 @@
 //
 
 struct MyTask {
-    var title: String = ""
+    let title: String
+    let todos: [MyTodo]
 }
 
 class DemoMyTask {
     static func sampleTask() -> [MyTask] {
-        let task1 = MyTask(title: "確定申告のタスク")
-        let task2 = MyTask(title: "結婚式のタスク")
+        let task1 = MyTask(title: "確定申告のタスク", todos: DemoMyTodo.sample())
+        let task2 = MyTask(title: "結婚式のタスク", todos: DemoMyTodo.sample())
         return [task1, task2]
     }
 }

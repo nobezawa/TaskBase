@@ -11,7 +11,12 @@ import UIKit
 final class TodoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var todoTableView: UITableView!
+    @IBOutlet weak var todoTableView: UITableView! {
+        didSet {
+            let nib = UINib(nibName: cellId, bundle: nil)
+            self.todoTableView.register(nib, forCellReuseIdentifier: cellId)
+        }
+    }
     
     let TODO = DemoMyTodo.sample()
     let cellId = "ImageTextTableCell"
@@ -25,9 +30,6 @@ final class TodoListViewController: UIViewController, UITableViewDelegate, UITab
         let backBtn = UIBarButtonItem()
         backBtn.title = ""
         self.navigationItem.backBarButtonItem = backBtn
-        
-        let nib = UINib(nibName: cellId, bundle: nil)
-        self.todoTableView.register(nib, forCellReuseIdentifier: cellId)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
