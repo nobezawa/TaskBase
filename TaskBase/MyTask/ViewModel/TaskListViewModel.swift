@@ -20,12 +20,4 @@ extension SectionMyTask: SectionModelType {
     }
 }
 
-final class TaskListViewModel {
-    private var tasks: [MyTask]
-    private let mediator: MyTaskMediatorProtocol
-
-    init(mediator: MyTaskMediatorProtocol) {
-        self.mediator = mediator
-        self.tasks = mediator.store
-    }
-}
+final class TaskListViewModel: MyTaskViewModel {}

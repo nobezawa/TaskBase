@@ -15,6 +15,7 @@ final class EditTodoViewController: UIViewController, UITableViewDelegate, UITab
     
     let TODO = DemoMyTodo.sample()
     let cellId = "ImageTextTableCell"
+    var viewModel: MyTaskViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()

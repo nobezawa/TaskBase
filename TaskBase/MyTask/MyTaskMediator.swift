@@ -29,10 +29,20 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
     }
 
     func prepare() {
-        let vc = controllers["first"]! as! TaskListViewController
-        let viewModel = TaskListViewModel(mediator: self)
-        vc.viewModel = viewModel
-        self.controllers["first"] = vc
+        let firstVC = controllers["first"]! as! TaskListViewController
+        let firstViewModel = TaskListViewModel(mediator: self)
+        firstVC.viewModel = firstViewModel
+        self.controllers["first"] = firstVC
+
+        let secondVC = controllers["second"] as! TodoListViewController
+        let secondViewModel = TodoListViewModel(mediator: self)
+        secondVC.viewModel = secondViewModel
+        self.controllers["second"] = secondVC
+
+        let thirdVC = controllers["third"] as! EditTodoViewController
+        let thirdViewModel = EditTodoViewModel(mediator: self)
+        thirdVC.viewModel = thirdViewModel
+        self.controllers["third"] = thirdVC
     }
 
     func rootVC() -> UIViewController {
