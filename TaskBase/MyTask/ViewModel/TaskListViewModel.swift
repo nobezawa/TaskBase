@@ -6,6 +6,7 @@
 //  Copyright © 2019 延澤拓郎. All rights reserved.
 //
 
+import UIKit
 import RxSwift
 import Differentiator
 
@@ -22,7 +23,7 @@ extension SectionMyTask: SectionModelType {
 }
 
 final class TaskListViewModel: MyTaskViewModel {
-    var tasks: Observable<[SectionMyTask]>?
+    var tasks: Observable<[SectionMyTask]> = Observable.just([])
 
     required init(mediator: MyTaskMediatorProtocol) {
         super.init(mediator: mediator)
@@ -31,5 +32,10 @@ final class TaskListViewModel: MyTaskViewModel {
             let sections = [SectionMyTask(items: task)]
             self.tasks = Observable.just(sections)
         })
+    }
+
+    func nextVC() -> UIViewController? {
+        let vc = self.mediator.nextVC(currentVCname: "TodoListVC")
+        return vc
     }
 }

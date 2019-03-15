@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 
-final class TodoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class TodoListViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var todoTableView: UITableView! {
@@ -20,7 +23,9 @@ final class TodoListViewController: UIViewController, UITableViewDelegate, UITab
     
     let TODO = DemoMyTodo.sample()
     let cellId = "ImageTextTableCell"
-    var viewModel: MyTaskViewModel?
+    var viewModel: TodoListViewModel?
+    private let disposeBag = DisposeBag()
+    private var dataSource: RxTableViewSectionedReloadDataSource<SectionMyTodo>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,26 +35,31 @@ final class TodoListViewController: UIViewController, UITableViewDelegate, UITab
         let backBtn = UIBarButtonItem()
         backBtn.title = ""
         self.navigationItem.backBarButtonItem = backBtn
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TODO.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: ImageTextTableCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ImageTextTableCell
-        let data = TODO[indexPath.row]
 
-        cell.titleLabel.text = data.title
-        cell.cellImage.image = UIImage(named: "uncheck_box")
-        return cell
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionMyTodo>(
+            configureCell: {dataSource, tableView, indexPath, item in
+                let cell: ImageTextTableCell = tableView.dequeueReusableCell(withIdentifier: "ImageTextTableCell", for: indexPath) as! ImageTextTableCell
+                cell.titleLabel.text = item.title
+                cell.cellImage.image = UIImage(named: "uncheck_box")
+                return cell
+            }
+        )
+        self.dataSource = dataSource
+        guard let viewModel = self.viewModel else { return }
+
+        viewModel.todos
+            .bind(to: todoTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
+        self.todoTableView.rx.itemSelected
+            .subscribe(onNext: {_ in
+                let vc = VCFactory.create(for: .editTodo)
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = VCFactory.create(for: .editTodo)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
+
     @objc internal func editBtnClicked(sender: UIButton) {
         let vc = VCFactory.create(for: .editTodo)
         self.navigationController?.pushViewController(vc, animated: true)

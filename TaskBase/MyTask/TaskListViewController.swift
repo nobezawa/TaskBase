@@ -42,15 +42,14 @@ final class TaskListViewController: UIViewController {
         )
         self.dataSource = dataSource
         guard let viewModel = self.viewModel else { return }
-        guard let tasks = viewModel.tasks else { return }
 
-        tasks
+        viewModel.tasks
             .bind(to: taskTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
 
         self.taskTableView.rx.itemSelected
             .subscribe(onNext: { _  in
-                let vc = VCFactory.create(for: .todoList)
+                guard let vc = viewModel.nextVC() else { return }
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: disposeBag)
