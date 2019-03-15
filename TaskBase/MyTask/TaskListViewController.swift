@@ -13,7 +13,7 @@ import RxDataSources
 
 final class TaskListViewController: UIViewController {
 
-    var viewModel: MyTaskViewModel?
+    var viewModel: TaskListViewModel?
 
     let TODO = DemoMyTask.sampleTask()
     let cellId = "ImageTextTableCell"
@@ -42,14 +42,11 @@ final class TaskListViewController: UIViewController {
                 return cell
             }
         )
-
         self.dataSource = dataSource
+        guard let viewModel = self.viewModel else { return }
+        guard let tasks = viewModel.tasks else { return }
 
-        let sections = [
-            SectionMyTask(items: TODO)
-        ]
-
-        Observable.just(sections)
+        tasks
             .bind(to: taskTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
 

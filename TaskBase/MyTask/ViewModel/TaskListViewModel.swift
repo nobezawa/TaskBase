@@ -6,6 +6,7 @@
 //  Copyright © 2019 延澤拓郎. All rights reserved.
 //
 
+import RxSwift
 import Differentiator
 
 struct SectionMyTask {
@@ -20,4 +21,13 @@ extension SectionMyTask: SectionModelType {
     }
 }
 
-final class TaskListViewModel: MyTaskViewModel {}
+final class TaskListViewModel: MyTaskViewModel {
+    var tasks: Observable<[SectionMyTask]>?
+
+    required init(mediator: MyTaskMediatorProtocol) {
+        super.init(mediator: mediator)
+
+        let sections = [SectionMyTask(items: self.store)]
+        self.tasks = Observable.just(sections)
+    }
+}
