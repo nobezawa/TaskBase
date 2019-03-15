@@ -14,8 +14,9 @@ final class MainTabBarController: UITabBarController {
         super.init(coder: aDecoder)
         var controllers = [UIViewController]()
 
-        let taskListViewController = VCFactory.create(for: .taskList)
-        taskListViewController.tabBarItem = UITabBarItem(title: "タスク", image: UIImage(named: "task"), tag: 0)
+        let myTaskMediator = MyTaskMediator()
+        myTaskMediator.prepare()
+        let taskListViewController = myTaskMediator.rootVC()
         controllers.append(taskListViewController)
 
         let searchListViewController = VCFactory.create(for: .searchList)

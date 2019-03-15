@@ -13,6 +13,8 @@ import RxDataSources
 
 final class TaskListViewController: UIViewController {
 
+    var viewModel: TaskListViewModel?
+
     let TODO = DemoMyTask.sampleTask()
     let cellId = "ImageTextTableCell"
     @IBOutlet weak var taskTableView: UITableView! {
