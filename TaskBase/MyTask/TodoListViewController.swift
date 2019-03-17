@@ -60,6 +60,15 @@ final class TodoListViewController: UIViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let viewModel = self.viewModel else { return }
+
+        viewModel.currentTitle
+            .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
+    }
+
     @objc internal func editBtnClicked(sender: UIButton) {
         let vc = VCFactory.create(for: .editTodo)
         self.navigationController?.pushViewController(vc, animated: true)

@@ -8,11 +8,10 @@ protocol MyTaskViewModelProtocol {
 }
 
 class MyTaskViewModel: MyTaskViewModelProtocol {
-    var store: [MyTask]
+
     let mediator: MyTaskMediatorProtocol
 
     required init(mediator: MyTaskMediatorProtocol) {
         self.mediator = mediator
-        self.store = mediator.store
     }
 }

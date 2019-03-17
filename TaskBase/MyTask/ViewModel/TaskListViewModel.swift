@@ -24,18 +24,24 @@ extension SectionMyTask: SectionModelType {
 
 final class TaskListViewModel: MyTaskViewModel {
     var tasks: Observable<[SectionMyTask]> = Observable.just([])
+    var store: [MyTask] = []
 
     required init(mediator: MyTaskMediatorProtocol) {
         super.init(mediator: mediator)
 
-        _ = mediator.subject.subscribe(onNext: { task in
-            let sections = [SectionMyTask(items: task)]
+        _ = mediator.subject.subscribe(onNext: { tasks in
+            let sections = [SectionMyTask(items: tasks)]
             self.tasks = Observable.just(sections)
+            self.store = tasks
         })
     }
 
     func nextVC() -> UIViewController? {
         let vc = self.mediator.nextVC(currentVCname: "TodoListVC")
         return vc
+    }
+
+    func tapTask(_ task: MyTask) {
+        self.mediator.setCurrentTask(task: task)
     }
 }

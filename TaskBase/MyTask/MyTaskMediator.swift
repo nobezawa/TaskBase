@@ -13,6 +13,7 @@ protocol MyTaskMediatorProtocol {
     var currentMyTask: BehaviorSubject<MyTask?> { get }
     func nextVC(currentVCname: String) -> UIViewController?
     func rootVC() -> UIViewController
+    func setCurrentTask(task: MyTask)
     //func updateStore(_ store: [MyTask])
 }
 
@@ -58,6 +59,10 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
         case "EditTodoVC": return controllers["third"]
         default: return nil
         }
+    }
+
+    func setCurrentTask(task: MyTask) {
+        self.currentMyTask.onNext(task)
     }
 
     private static func initializeVC() -> [String: UIViewController] {

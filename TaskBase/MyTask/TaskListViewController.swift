@@ -48,11 +48,12 @@ final class TaskListViewController: UIViewController {
             .disposed(by: disposeBag)
 
         self.taskTableView.rx.itemSelected
-            .subscribe(onNext: { _  in
+            .subscribe(onNext: { index  in
+                viewModel.tapTask(viewModel.store[index.row])
+
                 guard let vc = viewModel.nextVC() else { return }
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: disposeBag)
     }
-
 }

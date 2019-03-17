@@ -19,19 +19,24 @@ extension SectionMyTodo: SectionModelType {
 }
 
 final class TodoListViewModel: MyTaskViewModel {
-    var todos: Observable<[SectionMyTodo]> = Observable.just([SectionMyTodo(items: DemoMyTodo.sample())])
+    var currentTask: Observable<MyTask?> = Observable.empty()
+    var currentTitle: Observable<String?>  = Observable.empty()
+    var todos: Observable<[SectionMyTodo]> = Observable.just([])
 
     required init(mediator: MyTaskMediatorProtocol) {
         super.init(mediator: mediator)
 
-// TODO: currentMyTaskを設定する処理を書く
-//        _ = mediator.currentMyTask.subscribe(onNext: { myTask in
-//            guard let task = myTask else {
-//                self.todos = Observable.just([])
-//                return
-//            }
-//            let sections = [SectionMyTodo(items: task.todos)]
-//            self.todos = Observable.just(sections)
-//        })
+        _ = mediator.currentMyTask.subscribe(onNext: { myTask in
+            guard let task = myTask else {
+                self.todos = Observable.just([])
+                self.currentTask = Observable.empty()
+                self.currentTitle = Observable.just(nil)
+                return
+            }
+            let sections = [SectionMyTodo(items: task.todos)]
+            self.todos = Observable.just(sections)
+            self.currentTask = Observable.just(task)
+            self.currentTitle = Observable.just(task.title)
+        })
     }
 }
