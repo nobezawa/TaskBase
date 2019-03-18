@@ -11,6 +11,7 @@ protocol MyTaskMediatorProtocol {
     var controllers:[String: UIViewController] { get }
     var subject: BehaviorSubject<[MyTask]> { get }
     var currentMyTask: BehaviorSubject<MyTask?> { get }
+    var editingTodos: PublishSubject<[MyTodo]> { get }
 
     func nextVC(currentVCname: String) -> UIViewController?
     func rootVC() -> UIViewController
@@ -23,6 +24,7 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
     var subject: BehaviorSubject<[MyTask]>
     var controllers:[String: UIViewController]
     var currentMyTask: BehaviorSubject<MyTask?>
+    var editingTodos: PublishSubject<[MyTodo]> = PublishSubject<[MyTodo]>()
 
     init() {
         let store =  DemoMyTask.sampleTask()
@@ -64,6 +66,7 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
 
     func setCurrentTask(task: MyTask) {
         self.currentMyTask.onNext(task)
+        self.editingTodos.onNext(task.todos)
     }
 
     func updateStore(task: MyTask) {
