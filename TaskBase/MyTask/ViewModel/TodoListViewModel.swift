@@ -3,6 +3,7 @@
 // Copyright (c) 2019 延澤拓郎. All rights reserved.
 //
 
+import UIKit
 import RxSwift
 import RxCocoa
 import Differentiator
@@ -44,5 +45,10 @@ final class TodoListViewModel: MyTaskViewModel {
     func updateFinished(_ task: MyTask) {
         mediator.updateStore(task: task)
         mediator.setCurrentTask(task: task)
+    }
+
+    func nextVC() -> UIViewController? {
+        let vc = self.mediator.nextVC(currentVCname: "EditTodoVC")
+        return vc
     }
 }

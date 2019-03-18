@@ -11,6 +11,7 @@ protocol MyTaskMediatorProtocol {
     var controllers:[String: UIViewController] { get }
     var subject: BehaviorSubject<[MyTask]> { get }
     var currentMyTask: BehaviorSubject<MyTask?> { get }
+
     func nextVC(currentVCname: String) -> UIViewController?
     func rootVC() -> UIViewController
     func setCurrentTask(task: MyTask)
