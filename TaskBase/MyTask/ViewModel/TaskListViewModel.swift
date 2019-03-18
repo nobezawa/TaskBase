@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import Differentiator
 
 struct SectionMyTask {
@@ -24,6 +25,7 @@ extension SectionMyTask: SectionModelType {
 
 final class TaskListViewModel: MyTaskViewModel {
     var tasks: Observable<[SectionMyTask]> = Observable.just([])
+    let taskCount: BehaviorRelay<Int> = BehaviorRelay(value: 0)
     var store: [MyTask] = []
 
     required init(mediator: MyTaskMediatorProtocol) {
@@ -33,6 +35,7 @@ final class TaskListViewModel: MyTaskViewModel {
             let sections = [SectionMyTask(items: tasks)]
             self.tasks = Observable.just(sections)
             self.store = tasks
+            self.taskCount.accept(tasks.count)
         })
     }
 

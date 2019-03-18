@@ -19,8 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bkZ-Zd-NDj">
-                                <rect key="frame" x="20" y="94" width="335" height="573"/>
+                                <rect key="frame" x="20" y="94" width="335" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="CbF-or-VJ3"/>
+                                </constraints>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -28,13 +31,13 @@
                             <constraint firstItem="bkZ-Zd-NDj" firstAttribute="leading" secondItem="6ul-qP-lp1" secondAttribute="leading" constant="20" id="Kyt-q8-8EV"/>
                             <constraint firstItem="bkZ-Zd-NDj" firstAttribute="top" secondItem="6ul-qP-lp1" secondAttribute="top" constant="30" id="Uof-vy-Nsv"/>
                             <constraint firstItem="6ul-qP-lp1" firstAttribute="trailing" secondItem="bkZ-Zd-NDj" secondAttribute="trailing" constant="20" id="m9c-0j-cbj"/>
-                            <constraint firstItem="bkZ-Zd-NDj" firstAttribute="bottom" secondItem="6ul-qP-lp1" secondAttribute="bottom" id="xg5-IR-zeI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6ul-qP-lp1"/>
                     </view>
                     <navigationItem key="navigationItem" id="eEg-5a-f6e"/>
                     <connections>
                         <outlet property="taskTableView" destination="bkZ-Zd-NDj" id="Iwx-TZ-3ae"/>
+                        <outlet property="taskTableViewHeight" destination="CbF-or-VJ3" id="J5a-Hp-PAl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVG-eB-acr" userLabel="First Responder" sceneMemberID="firstResponder"/>

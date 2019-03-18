@@ -20,6 +20,8 @@ final class TaskListViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var taskTableViewHeight: NSLayoutConstraint!
+
     var viewModel: TaskListViewModel?
     private let cellId = "ImageTextTableCell"
     private let disposeBag = DisposeBag()
@@ -46,6 +48,12 @@ final class TaskListViewController: UIViewController {
         viewModel.tasks
             .bind(to: taskTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+        
+        viewModel.taskCount
+            .subscribe(onNext: {[weak self] count in
+                self?.taskTableViewHeight.constant = CGFloat(50 * count)
+            })
+           .disposed(by: disposeBag)
 
         self.taskTableView.rx.itemSelected
             .subscribe(onNext: { index  in
@@ -55,5 +63,19 @@ final class TaskListViewController: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: disposeBag)
+    }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+////        taskTableView.invalidateIntrinsicContentSize()
+//        if let count = viewModel?.store.count {
+//            taskTableViewHeight.constant = CGFloat(50 * count)
+//        }
+//    }
+}
+
+extension TaskListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
