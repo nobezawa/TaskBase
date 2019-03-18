@@ -8,6 +8,7 @@ import RxSwift
 
 final class EditTodoViewModel: MyTaskViewModel {
     var todos: BehaviorRelay<[SectionMyTodo]> = BehaviorRelay(value: [])
+    var currentTitle: BehaviorRelay<String> = BehaviorRelay(value: "")
 
     required init(mediator: MyTaskMediatorProtocol) {
         super.init(mediator: mediator)
@@ -15,6 +16,13 @@ final class EditTodoViewModel: MyTaskViewModel {
         _ = mediator.editingTodos.subscribe(onNext: {todos in
             let sections = [SectionMyTodo(items: todos)]
             self.todos.accept(sections)
+        })
+        
+        _ = mediator.currentMyTask.subscribe(onNext: {myTask in
+            guard let task = myTask else {
+                return
+            }
+            self.currentTitle.accept(task.title)
         })
     }
 }

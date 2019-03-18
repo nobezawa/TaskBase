@@ -45,6 +45,10 @@ final class EditTodoViewController: UIViewController {
                 return cell
             }
         )
+        
+        viewModel.currentTitle
+            .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
 
         viewModel.todos
             .bind(to: editTableView.rx.items(dataSource: dataSource))

@@ -64,14 +64,6 @@ final class TaskListViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-////        taskTableView.invalidateIntrinsicContentSize()
-//        if let count = viewModel?.store.count {
-//            taskTableViewHeight.constant = CGFloat(50 * count)
-//        }
-//    }
 }
 
 extension TaskListViewController: UITableViewDelegate {
