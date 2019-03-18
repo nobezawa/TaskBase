@@ -14,7 +14,7 @@ protocol MyTaskMediatorProtocol {
     func nextVC(currentVCname: String) -> UIViewController?
     func rootVC() -> UIViewController
     func setCurrentTask(task: MyTask)
-    //func updateStore(_ store: [MyTask])
+    func updateStore(task: MyTask)
 }
 
 final class MyTaskMediator: MyTaskMediatorProtocol {
@@ -63,6 +63,12 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
 
     func setCurrentTask(task: MyTask) {
         self.currentMyTask.onNext(task)
+    }
+
+    func updateStore(task: MyTask) {
+        guard let index = self.store.firstIndex(where: { $0.id == task.id} ) else { return }
+        self.store[index] = task
+        self.subject.onNext(self.store)
     }
 
     private static func initializeVC() -> [String: UIViewController] {

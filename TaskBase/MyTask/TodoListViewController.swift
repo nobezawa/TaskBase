@@ -40,7 +40,7 @@ final class TodoListViewController: UIViewController {
             configureCell: {dataSource, tableView, indexPath, item in
                 let cell: ImageTextTableCell = tableView.dequeueReusableCell(withIdentifier: "ImageTextTableCell", for: indexPath) as! ImageTextTableCell
                 cell.titleLabel.text = item.title
-                cell.cellImage.image = UIImage(named: "uncheck_box")
+                cell.cellImage.image = item.finished ? UIImage(named: "checked_box") : UIImage(named: "uncheck_box")
                 return cell
             }
         )
@@ -52,12 +52,17 @@ final class TodoListViewController: UIViewController {
             .disposed(by: disposeBag)
 
         self.todoTableView.rx.itemSelected
-            .subscribe(onNext: {_ in
-                let vc = VCFactory.create(for: .editTodo)
-                self.navigationController?.pushViewController(vc, animated: true)
+            .subscribe(onNext: {indexPath in
+                viewModel.currentTask.bind(onNext: {myTask in
+                    guard let task = myTask else { return }
+                    var todos = task.todos
+                    var todo = todos[indexPath.row]
+                    todo.finished = !todo.finished
+                    todos[indexPath.row] = todo
+                    viewModel.updateFinished(MyTask(id: task.id, title: task.title, todos: todos))
+                }).dispose()
             })
             .disposed(by: disposeBag)
-
     }
 
     override func viewWillAppear(_ animated: Bool) {

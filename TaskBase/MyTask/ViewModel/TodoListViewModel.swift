@@ -39,4 +39,9 @@ final class TodoListViewModel: MyTaskViewModel {
             self.currentTitle = Observable.just(task.title)
         })
     }
+
+    func updateFinished(_ task: MyTask) {
+        mediator.updateStore(task: task)
+        mediator.setCurrentTask(task: task)
+    }
 }
