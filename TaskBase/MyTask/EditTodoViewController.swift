@@ -20,8 +20,8 @@ final class EditTodoViewController: UIViewController {
             self.editTableView.register(nib, forCellReuseIdentifier: cellId)
         }
     }
-    
-    let TODO = DemoMyTodo.sample()
+    @IBOutlet weak var editTableViewHeight: NSLayoutConstraint!
+
     let cellId = "ImageTextTableCell"
     var viewModel: EditTodoViewModel?
     private let disposeBag = DisposeBag()
@@ -52,6 +52,10 @@ final class EditTodoViewController: UIViewController {
 
         viewModel.todos
             .bind(to: editTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        viewModel.tableViewHeight
+            .bind(to: editTableViewHeight.rx.constant)
             .disposed(by: disposeBag)
     }
 
