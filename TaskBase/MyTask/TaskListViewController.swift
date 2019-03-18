@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 
-final class TaskListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class TaskListViewController: UIViewController {
 
-    let TODO = DemoMyTask.sampleTask()
-    let cellId = "ImageTextTableCell"
-    @IBOutlet weak var taskTableView: UITableView!
+    @IBOutlet weak var taskTableView: UITableView! {
+        didSet {
+            let nib = UINib(nibName: cellId, bundle: nil)
+            self.taskTableView.register(nib, forCellReuseIdentifier: cellId)
+        }
+    }
+
+    var viewModel: TaskListViewModel?
+    private let cellId = "ImageTextTableCell"
+    private let disposeBag = DisposeBag()
+    private var dataSource: RxTableViewSectionedReloadDataSource<SectionMyTask>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,26 +31,29 @@ final class TaskListViewController: UIViewController, UITableViewDelegate, UITab
         let backBtn = UIBarButtonItem()
         backBtn.title = ""
         self.navigationItem.backBarButtonItem = backBtn
-        
-        let nib = UINib(nibName: cellId, bundle: nil)
-        self.taskTableView.register(nib, forCellReuseIdentifier: cellId)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TODO.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: ImageTextTableCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ImageTextTableCell
-        let data = TODO[indexPath.row]
-        
-        cell.titleLabel.text = data.title
-        cell.cellImage.image = UIImage(named: "uncheck_task")
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = VCFactory.create(for: .todoList)
-        self.navigationController?.pushViewController(vc, animated: true)
+
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionMyTask>(
+            configureCell: {dataSource, tableView, indexPath, item in
+                let cell: ImageTextTableCell = tableView.dequeueReusableCell(withIdentifier: "ImageTextTableCell", for: indexPath) as! ImageTextTableCell
+                cell.titleLabel.text = item.title
+                cell.cellImage.image = UIImage(named: "uncheck_task")
+                return cell
+            }
+        )
+        self.dataSource = dataSource
+        guard let viewModel = self.viewModel else { return }
+
+        viewModel.tasks
+            .bind(to: taskTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
+        self.taskTableView.rx.itemSelected
+            .subscribe(onNext: { index  in
+                viewModel.tapTask(viewModel.store[index.row])
+
+                guard let vc = viewModel.nextVC() else { return }
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }

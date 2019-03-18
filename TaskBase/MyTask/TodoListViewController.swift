@@ -7,48 +7,75 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 
-final class TodoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class TodoListViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var todoTableView: UITableView!
+    @IBOutlet weak var todoTableView: UITableView! {
+        didSet {
+            let nib = UINib(nibName: cellId, bundle: nil)
+            self.todoTableView.register(nib, forCellReuseIdentifier: cellId)
+        }
+    }
     
     let TODO = DemoMyTodo.sample()
     let cellId = "ImageTextTableCell"
+    var viewModel: TodoListViewModel?
+    private let disposeBag = DisposeBag()
+    private var dataSource: RxTableViewSectionedReloadDataSource<SectionMyTodo>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let viewModel = self.viewModel else { return }
         let btn = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(editBtnClicked(sender:)))
         self.navigationItem.rightBarButtonItem = btn
-        
+
         let backBtn = UIBarButtonItem()
         backBtn.title = ""
         self.navigationItem.backBarButtonItem = backBtn
-        
-        let nib = UINib(nibName: cellId, bundle: nil)
-        self.todoTableView.register(nib, forCellReuseIdentifier: cellId)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TODO.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: ImageTextTableCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ImageTextTableCell
-        let data = TODO[indexPath.row]
 
-        cell.titleLabel.text = data.title
-        cell.cellImage.image = UIImage(named: "uncheck_box")
-        return cell
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionMyTodo>(
+            configureCell: {dataSource, tableView, indexPath, item in
+                let cell: ImageTextTableCell = tableView.dequeueReusableCell(withIdentifier: "ImageTextTableCell", for: indexPath) as! ImageTextTableCell
+                cell.titleLabel.text = item.title
+                cell.cellImage.image = item.finished ? UIImage(named: "checked_box") : UIImage(named: "uncheck_box")
+                return cell
+            }
+        )
+        self.dataSource = dataSource
+
+        viewModel.todos
+            .bind(to: todoTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
+        self.todoTableView.rx.itemSelected
+            .subscribe(onNext: {indexPath in
+                viewModel.currentTask.bind(onNext: {myTask in
+                    guard let task = myTask else { return }
+                    var todos = task.todos
+                    var todo = todos[indexPath.row]
+                    todo.finished = !todo.finished
+                    todos[indexPath.row] = todo
+                    viewModel.updateFinished(MyTask(id: task.id, title: task.title, todos: todos))
+                }).dispose()
+            })
+            .disposed(by: disposeBag)
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = VCFactory.create(for: .editTodo)
-        self.navigationController?.pushViewController(vc, animated: true)
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let viewModel = self.viewModel else { return }
+
+        viewModel.currentTitle
+            .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
     }
-    
+
     @objc internal func editBtnClicked(sender: UIButton) {
-        let vc = VCFactory.create(for: .editTodo)
+        guard let vc = viewModel?.nextVC() else { return }
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
