@@ -4,6 +4,7 @@
 //
 
 import RxSwift
+import RxCocoa
 import Differentiator
 
 struct SectionMyTodo {
@@ -21,20 +22,20 @@ extension SectionMyTodo: SectionModelType {
 final class TodoListViewModel: MyTaskViewModel {
     var currentTask: Observable<MyTask?> = Observable.empty()
     var currentTitle: Observable<String?>  = Observable.empty()
-    var todos: Observable<[SectionMyTodo]> = Observable.just([])
+    var todos: BehaviorRelay<[SectionMyTodo]> = BehaviorRelay(value: [])
 
     required init(mediator: MyTaskMediatorProtocol) {
         super.init(mediator: mediator)
 
         _ = mediator.currentMyTask.subscribe(onNext: { myTask in
             guard let task = myTask else {
-                self.todos = Observable.just([])
+                self.todos.accept([])
                 self.currentTask = Observable.empty()
                 self.currentTitle = Observable.just(nil)
                 return
             }
             let sections = [SectionMyTodo(items: task.todos)]
-            self.todos = Observable.just(sections)
+            self.todos.accept(sections)
             self.currentTask = Observable.just(task)
             self.currentTitle = Observable.just(task.title)
         })
