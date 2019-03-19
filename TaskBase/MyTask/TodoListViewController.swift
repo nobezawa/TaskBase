@@ -21,7 +21,8 @@ final class TodoListViewController: UIViewController {
         }
     }
     
-    let TODO = DemoMyTodo.sample()
+    @IBOutlet weak var todoTableViewHeight: NSLayoutConstraint!
+
     let cellId = "ImageTextTableCell"
     var viewModel: TodoListViewModel?
     private let disposeBag = DisposeBag()
@@ -49,6 +50,10 @@ final class TodoListViewController: UIViewController {
 
         viewModel.todos
             .bind(to: todoTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        viewModel.tableViewHeight
+            .bind(to: todoTableViewHeight.rx.constant)
             .disposed(by: disposeBag)
 
         self.todoTableView.rx.itemSelected

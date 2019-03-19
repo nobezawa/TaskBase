@@ -24,6 +24,7 @@ final class TodoListViewModel: MyTaskViewModel {
     var currentTask: Observable<MyTask?> = Observable.empty()
     var currentTitle: Observable<String?>  = Observable.empty()
     var todos: BehaviorRelay<[SectionMyTodo]> = BehaviorRelay(value: [])
+    var tableViewHeight: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
 
     required init(mediator: MyTaskMediatorProtocol) {
         super.init(mediator: mediator)
@@ -39,6 +40,8 @@ final class TodoListViewModel: MyTaskViewModel {
             self.todos.accept(sections)
             self.currentTask = Observable.just(task)
             self.currentTitle = Observable.just(task.title)
+            let height = CGFloat(task.todos.count * 50)
+            self.tableViewHeight.accept(height)
         })
     }
 
