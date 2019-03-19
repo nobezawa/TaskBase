@@ -64,7 +64,7 @@ final class TodoListViewController: UIViewController {
                     var todo = todos[indexPath.row]
                     todo.finished = !todo.finished
                     todos[indexPath.row] = todo
-                    viewModel.updateFinished(MyTask(id: task.id, title: task.title, todos: todos))
+                    viewModel.updateFinished(MyTask(id: task.id, title: task.title, finished: !todos.contains { $0.finished == false }, todos: todos))
                 }).dispose()
             })
             .disposed(by: disposeBag)

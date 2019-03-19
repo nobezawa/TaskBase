@@ -24,7 +24,7 @@ extension SectionMyTask: SectionModelType {
 }
 
 final class TaskListViewModel: MyTaskViewModel {
-    var tasks: Observable<[SectionMyTask]> = Observable.just([])
+    var tasks: BehaviorRelay<[SectionMyTask]> = BehaviorRelay(value: [])
     let taskCount: BehaviorRelay<Int> = BehaviorRelay(value: 0)
     var store: [MyTask] = []
 
@@ -33,7 +33,7 @@ final class TaskListViewModel: MyTaskViewModel {
 
         _ = mediator.subject.subscribe(onNext: { tasks in
             let sections = [SectionMyTask(items: tasks)]
-            self.tasks = Observable.just(sections)
+            self.tasks.accept(sections)
             self.store = tasks
             self.taskCount.accept(tasks.count)
         })
