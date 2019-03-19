@@ -31,7 +31,13 @@ final class TodoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let viewModel = self.viewModel else { return }
-        let btn = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(editBtnClicked(sender:)))
+
+        let btn = UIBarButtonItem(title: "編集", style: .plain, target: nil, action: nil)
+        btn.rx.tap.subscribe(onNext: { _ in
+            guard let vc = viewModel.nextVC() else { return }
+            self.navigationController?.pushViewController(vc, animated: true)
+        }).disposed(by: disposeBag)
+
         self.navigationItem.rightBarButtonItem = btn
 
         let backBtn = UIBarButtonItem()
@@ -77,10 +83,5 @@ final class TodoListViewController: UIViewController {
         viewModel.currentTitle
             .bind(to: titleLabel.rx.text)
             .disposed(by: disposeBag)
-    }
-
-    @objc internal func editBtnClicked(sender: UIButton) {
-        guard let vc = viewModel?.nextVC() else { return }
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
