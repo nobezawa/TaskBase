@@ -29,4 +29,8 @@ final class EditTodoViewModel: MyTaskViewModel {
             self.currentTitle.accept(task.title)
         })
     }
+
+    func removeTodo(_ todo: MyTodo) {
+        self.mediator.removeEditingTodo(todo: todo)
+    }
 }

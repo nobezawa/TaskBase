@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class ImageTextFieldTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var cellTextField: UITextField!
-
 }

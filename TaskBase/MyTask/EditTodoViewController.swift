@@ -41,8 +41,7 @@ final class EditTodoViewController: UIViewController {
             configureCell: {[weak self] dataSource, tableView, indexPath, item in
                 let cell: ImageTextFieldTableViewCell = tableView.dequeueReusableCell(withIdentifier: self!.cellId, for: indexPath) as! ImageTextFieldTableViewCell
                 cell.cellTextField.text = item.title
-                cell.cellImageView.image = UIImage(named: "delete_icon")
-                return cell
+                return self!.addSettingToImage(cell: cell, item: item)
             }
         )
         
@@ -61,6 +60,20 @@ final class EditTodoViewController: UIViewController {
 
     @objc internal func finishBtnClicked(sender: UIButton) {
         print("Finish Btn")
+    }
+
+    private func addSettingToImage(cell: ImageTextFieldTableViewCell, item: MyTodo) -> ImageTextFieldTableViewCell {
+        cell.cellImageView.image = UIImage(named: "delete_icon")
+        let tapGesture = UITapGestureRecognizer()
+        cell.cellImageView.addGestureRecognizer(tapGesture)
+        cell.cellImageView.isUserInteractionEnabled = true
+
+        guard let viewModel = self.viewModel else { return  cell }
+
+        _ = tapGesture.rx.event.subscribe(onNext: { _ in
+            viewModel.removeTodo(item)
+        })
+        return cell
     }
 
 }

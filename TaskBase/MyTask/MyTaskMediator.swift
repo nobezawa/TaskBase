@@ -11,12 +11,13 @@ protocol MyTaskMediatorProtocol {
     var controllers:[String: UIViewController] { get }
     var subject: BehaviorSubject<[MyTask]> { get }
     var currentMyTask: BehaviorSubject<MyTask?> { get }
-    var editingTodos: PublishSubject<[MyTodo]> { get }
+    var editingTodos: BehaviorSubject<[MyTodo]> { get }
 
     func nextVC(currentVCname: String) -> UIViewController?
     func rootVC() -> UIViewController
     func setCurrentTask(task: MyTask)
     func updateStore(task: MyTask)
+    func removeEditingTodo(todo: MyTodo)
 }
 
 final class MyTaskMediator: MyTaskMediatorProtocol {
@@ -24,7 +25,7 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
     var subject: BehaviorSubject<[MyTask]>
     var controllers:[String: UIViewController]
     var currentMyTask: BehaviorSubject<MyTask?>
-    var editingTodos: PublishSubject<[MyTodo]> = PublishSubject<[MyTodo]>()
+    var editingTodos: BehaviorSubject<[MyTodo]> = BehaviorSubject(value: [])
 
     init() {
         let store =  DemoMyTask.sampleTask()
@@ -73,6 +74,17 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
         guard let index = self.store.firstIndex(where: { $0.id == task.id} ) else { return }
         self.store[index] = task
         self.subject.onNext(self.store)
+    }
+
+    func removeEditingTodo(todo: MyTodo) {
+        do {
+            var todos = try self.editingTodos.value()
+            if todos.isEmpty { return }
+            guard let index = todos.firstIndex(where: { $0.id == todo.id}) else { return }
+            todos.remove(at: index)
+            self.editingTodos.onNext(todos)
+        } catch {
+        }
     }
 
     private static func initializeVC() -> [String: UIViewController] {
