@@ -8,9 +8,10 @@ import RxCocoa
 import RxSwift
 
 final class EditTodoViewModel: MyTaskViewModel {
-    var todos: BehaviorRelay<[SectionMyTodo]> = BehaviorRelay(value: [])
-    var currentTitle: BehaviorRelay<String> = BehaviorRelay(value: "")
-    var tableViewHeight: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
+    let todos: BehaviorRelay<[SectionMyTodo]> = BehaviorRelay(value: [])
+    let currentTitle: BehaviorRelay<String> = BehaviorRelay(value: "")
+    let tableViewHeight: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
+    let isEnableFinishBtn: BehaviorRelay<Bool> = BehaviorRelay(value: false)
 
     required init(mediator: MyTaskMediatorProtocol) {
         super.init(mediator: mediator)
@@ -23,9 +24,7 @@ final class EditTodoViewModel: MyTaskViewModel {
         })
         
         _ = mediator.currentMyTask.subscribe(onNext: {myTask in
-            guard let task = myTask else {
-                return
-            }
+            guard let task = myTask else { return }
             self.currentTitle.accept(task.title)
         })
     }

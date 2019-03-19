@@ -30,8 +30,7 @@ final class EditTodoViewController: UIViewController {
         super.viewDidLoad()
         guard let viewModel = self.viewModel else { return }
 
-        let btn = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(finishBtnClicked(sender:)))
-        self.navigationItem.rightBarButtonItem = btn
+        settingEditBtn(viewModel: viewModel)
         
         let backBtn = UIBarButtonItem()
         backBtn.title = ""
@@ -58,10 +57,6 @@ final class EditTodoViewController: UIViewController {
             .disposed(by: disposeBag)
     }
 
-    @objc internal func finishBtnClicked(sender: UIButton) {
-        print("Finish Btn")
-    }
-
     private func addSettingToImage(cell: ImageTextFieldTableViewCell, item: MyTodo) -> ImageTextFieldTableViewCell {
         cell.cellImageView.image = UIImage(named: "delete_icon")
         let tapGesture = UITapGestureRecognizer()
@@ -75,5 +70,23 @@ final class EditTodoViewController: UIViewController {
         })
         return cell
     }
+}
 
+extension EditTodoViewController {
+
+    private func settingEditBtn(viewModel: EditTodoViewModel) {
+        let btn = UIBarButtonItem(title: "完了", style: .plain, target: nil, action: nil)
+
+        viewModel.isEnableFinishBtn.subscribe(onNext: { isEnable in
+            btn.isEnabled = isEnable
+        })
+        .disposed(by: disposeBag)
+
+        btn.rx.tap.subscribe(onNext: { _ in
+            print("finish btn")
+        })
+        .disposed(by: disposeBag)
+
+        self.navigationItem.rightBarButtonItem = btn
+    }
 }
