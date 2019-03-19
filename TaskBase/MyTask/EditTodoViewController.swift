@@ -22,7 +22,7 @@ final class EditTodoViewController: UIViewController {
     }
     @IBOutlet weak var editTableViewHeight: NSLayoutConstraint!
 
-    let cellId = "ImageTextTableCell"
+    let cellId = "ImageTextFieldTableViewCell"
     var viewModel: EditTodoViewModel?
     private let disposeBag = DisposeBag()
 
@@ -38,10 +38,10 @@ final class EditTodoViewController: UIViewController {
         self.navigationItem.backBarButtonItem = backBtn
 
         let dataSource = RxTableViewSectionedReloadDataSource<SectionMyTodo>(
-            configureCell: {dataSource, tableView, indexPath, item in
-                let cell: ImageTextTableCell = tableView.dequeueReusableCell(withIdentifier: "ImageTextTableCell", for: indexPath) as! ImageTextTableCell
-                cell.titleLabel.text = item.title
-                cell.cellImage.image = UIImage(named: "delete_icon")
+            configureCell: {[weak self] dataSource, tableView, indexPath, item in
+                let cell: ImageTextFieldTableViewCell = tableView.dequeueReusableCell(withIdentifier: self!.cellId, for: indexPath) as! ImageTextFieldTableViewCell
+                cell.cellTextField.text = item.title
+                cell.cellImageView.image = UIImage(named: "delete_icon")
                 return cell
             }
         )
