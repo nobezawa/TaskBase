@@ -38,7 +38,7 @@ final class TaskListViewController: UIViewController {
             configureCell: {dataSource, tableView, indexPath, item in
                 let cell: ImageTextTableCell = tableView.dequeueReusableCell(withIdentifier: "ImageTextTableCell", for: indexPath) as! ImageTextTableCell
                 cell.titleLabel.text = item.title
-                cell.cellImage.image = UIImage(named: "uncheck_task")
+                cell.cellImage.image = item.finished ? UIImage(named: "checked_task") : UIImage(named: "uncheck_task")
                 return cell
             }
         )
