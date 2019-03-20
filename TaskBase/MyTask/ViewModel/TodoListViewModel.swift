@@ -21,7 +21,7 @@ extension SectionMyTodo: SectionModelType {
 }
 
 final class TodoListViewModel: MyTaskViewModel {
-    var currentTask: Observable<MyTask?> = Observable.empty()
+    var currentTask: MyTask?
     var currentTitle: Observable<String?>  = Observable.empty()
     var todos: BehaviorRelay<[SectionMyTodo]> = BehaviorRelay(value: [])
     var tableViewHeight: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
@@ -32,13 +32,13 @@ final class TodoListViewModel: MyTaskViewModel {
         _ = mediator.currentMyTask.subscribe(onNext: { myTask in
             guard let task = myTask else {
                 self.todos.accept([])
-                self.currentTask = Observable.empty()
+                self.currentTask = nil
                 self.currentTitle = Observable.just(nil)
                 return
             }
             let sections = [SectionMyTodo(items: task.todos)]
             self.todos.accept(sections)
-            self.currentTask = Observable.just(task)
+            self.currentTask = task
             self.currentTitle = Observable.just(task.title)
             let height = CGFloat(task.todos.count * 50)
             self.tableViewHeight.accept(height)
@@ -53,5 +53,10 @@ final class TodoListViewModel: MyTaskViewModel {
     func nextVC() -> UIViewController? {
         let vc = self.mediator.nextVC(currentVCname: "EditTodoVC")
         return vc
+    }
+
+    func setTask() {
+        guard let task = self.currentTask else { return }
+        self.mediator.setCurrentTask(task: task)
     }
 }

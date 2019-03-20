@@ -31,8 +31,8 @@ final class TodoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let viewModel = self.viewModel else { return }
-        let btn = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(editBtnClicked(sender:)))
-        self.navigationItem.rightBarButtonItem = btn
+
+        settingEditBtn(viewModel: viewModel)
 
         let backBtn = UIBarButtonItem()
         backBtn.title = ""
@@ -58,14 +58,12 @@ final class TodoListViewController: UIViewController {
 
         self.todoTableView.rx.itemSelected
             .subscribe(onNext: {indexPath in
-                viewModel.currentTask.bind(onNext: {myTask in
-                    guard let task = myTask else { return }
-                    var todos = task.todos
-                    var todo = todos[indexPath.row]
-                    todo.finished = !todo.finished
-                    todos[indexPath.row] = todo
-                    viewModel.updateFinished(MyTask(id: task.id, title: task.title, finished: !todos.contains { $0.finished == false }, todos: todos))
-                }).dispose()
+                guard let task = viewModel.currentTask else { return }
+                var todos = task.todos
+                var todo = todos[indexPath.row]
+                todo.finished = !todo.finished
+                todos[indexPath.row] = todo
+                viewModel.updateFinished(MyTask(id: task.id, title: task.title, finished: !todos.contains { $0.finished == false }, todos: todos))
             })
             .disposed(by: disposeBag)
     }
@@ -78,9 +76,17 @@ final class TodoListViewController: UIViewController {
             .bind(to: titleLabel.rx.text)
             .disposed(by: disposeBag)
     }
+}
 
-    @objc internal func editBtnClicked(sender: UIButton) {
-        guard let vc = viewModel?.nextVC() else { return }
-        self.navigationController?.pushViewController(vc, animated: true)
+extension TodoListViewController {
+
+    private func settingEditBtn(viewModel: TodoListViewModel) {
+        let btn = UIBarButtonItem(title: "編集", style: .plain, target: nil, action: nil)
+        btn.rx.tap.subscribe(onNext: { _ in
+            viewModel.setTask()
+            guard let vc = viewModel.nextVC() else { return }
+            self.navigationController?.pushViewController(vc, animated: true)
+        }).disposed(by: disposeBag)
+        self.navigationItem.rightBarButtonItem = btn
     }
 }
