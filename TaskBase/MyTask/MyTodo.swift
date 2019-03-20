@@ -23,6 +23,12 @@ final class ReMyTodo: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
+
+    var todoStruct: MyTodo {
+        get {
+            return MyTodo(id: self.id, title: self.title, finished: self.finished)
+        }
+    }
 }
 
 class DemoMyTodo {

@@ -5,6 +5,8 @@
 
 import UIKit
 import RxSwift
+import Realm
+import RealmSwift
 
 protocol MyTaskMediatorProtocol {
     var store: [MyTask] { get set }
@@ -33,7 +35,7 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
     var isEditing: BehaviorSubject<Bool> = BehaviorSubject(value: false)
 
     init() {
-        let store =  DemoMyTask.sampleTask()
+        let store =  MyTaskMediator.loadTasks()
         self.store = store
         self.subject = BehaviorSubject(value: store)
         self.controllers = MyTaskMediator.initializeVC()
@@ -117,5 +119,11 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
             "second": todoListViewController,
             "third": editTodoViewController
         ]
+    }
+
+    private static func loadTasks() -> [MyTask] {
+        let realm = try! Realm()
+        let tasks = realm.objects(ReMyTask.self)
+        return Array(tasks).map({ (data: ReMyTask) in data.taskStruct })
     }
 }

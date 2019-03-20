@@ -41,7 +41,7 @@ final class SearchDetailViewModel {
     func selectTask() {
         let realm = try! Realm()
         let tasks = realm.objects(ReMyTask.self)
-        print(tasks)
+        print(Array(tasks).map({ (data: ReMyTask) in data.taskStruct }))
     }
 
 }
