@@ -12,12 +12,15 @@ protocol MyTaskMediatorProtocol {
     var subject: BehaviorSubject<[MyTask]> { get }
     var currentMyTask: BehaviorSubject<MyTask?> { get }
     var editingTodos: BehaviorSubject<[MyTodo]> { get }
+    var afterEditingTodos: [MyTodo] { get }
+    var isEditing: BehaviorSubject<Bool> { get }
 
     func nextVC(currentVCname: String) -> UIViewController?
     func rootVC() -> UIViewController
     func setCurrentTask(task: MyTask)
     func updateStore(task: MyTask)
     func removeEditingTodo(todo: MyTodo)
+    func syncTodoTitle(todo: MyTodo)
 }
 
 final class MyTaskMediator: MyTaskMediatorProtocol {
@@ -26,6 +29,8 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
     var controllers:[String: UIViewController]
     var currentMyTask: BehaviorSubject<MyTask?>
     var editingTodos: BehaviorSubject<[MyTodo]> = BehaviorSubject(value: [])
+    var afterEditingTodos: [MyTodo] = []
+    var isEditing: BehaviorSubject<Bool> = BehaviorSubject(value: false)
 
     init() {
         let store =  DemoMyTask.sampleTask()
@@ -68,6 +73,8 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
     func setCurrentTask(task: MyTask) {
         self.currentMyTask.onNext(task)
         self.editingTodos.onNext(task.todos)
+        self.afterEditingTodos = task.todos
+        self.isEditing.onNext(false)
     }
 
     func updateStore(task: MyTask) {
@@ -82,9 +89,20 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
             if todos.isEmpty { return }
             guard let index = todos.firstIndex(where: { $0.id == todo.id}) else { return }
             todos.remove(at: index)
+            self.afterEditingTodos.remove(at: index)
             self.editingTodos.onNext(todos)
+            self.isEditing.onNext(true)
         } catch {
         }
+    }
+
+    func syncTodoTitle(todo: MyTodo) {
+        var todos = self.afterEditingTodos
+        if todos.isEmpty { return }
+        guard let index = todos.firstIndex(where: { $0.id == todo.id}) else { return }
+        todos[index] = todo
+        self.afterEditingTodos = todos
+        self.isEditing.onNext(true)
     }
 
     private static func initializeVC() -> [String: UIViewController] {

@@ -39,8 +39,8 @@ final class EditTodoViewController: UIViewController {
         let dataSource = RxTableViewSectionedReloadDataSource<SectionMyTodo>(
             configureCell: {[weak self] dataSource, tableView, indexPath, item in
                 let cell: ImageTextFieldTableViewCell = tableView.dequeueReusableCell(withIdentifier: self!.cellId, for: indexPath) as! ImageTextFieldTableViewCell
-                cell.cellTextField.text = item.title
-                return self!.addSettingToImage(cell: cell, item: item)
+
+                return self!.addSettingToImage(cell: self!.syncEditingText(cell: cell, item: item), item: item)
             }
         )
         
@@ -68,6 +68,23 @@ final class EditTodoViewController: UIViewController {
         _ = tapGesture.rx.event.subscribe(onNext: { _ in
             viewModel.removeTodo(item)
         })
+        .disposed(by: self.disposeBag)
+
+        return cell
+    }
+
+    private func syncEditingText(cell: ImageTextFieldTableViewCell, item: MyTodo) -> ImageTextFieldTableViewCell {
+        cell.cellTextField.text = item.title
+        guard let viewModel = self.viewModel else { return  cell }
+        _ = cell.cellTextField.rx.text
+                .skip(1)
+                .subscribe(onNext: { input in
+                    guard let text = input else { return }
+                    //print(text)
+                    viewModel.syncText(todo: item, updateText: text)
+                })
+                .disposed(by: self.disposeBag)
+
         return cell
     }
 }

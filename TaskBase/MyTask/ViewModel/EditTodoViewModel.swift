@@ -27,9 +27,19 @@ final class EditTodoViewModel: MyTaskViewModel {
             guard let task = myTask else { return }
             self.currentTitle.accept(task.title)
         })
+
+        _ = mediator.isEditing
+            .distinctUntilChanged({ $0 })
+            .subscribe(onNext: { self.isEnableFinishBtn.accept($0)} )
     }
 
     func removeTodo(_ todo: MyTodo) {
         self.mediator.removeEditingTodo(todo: todo)
+    }
+
+    func syncText(todo: MyTodo, updateText: String) {
+        var copyTodo = todo
+        copyTodo.title = updateText
+        self.mediator.syncTodoTitle(todo: copyTodo)
     }
 }
