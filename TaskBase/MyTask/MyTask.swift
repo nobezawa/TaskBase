@@ -16,11 +16,11 @@ struct MyTask {
     let todos: [MyTodo]
 }
 
-class ReMyTask: Object {
+final class ReMyTask: Object {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var title = ""
     @objc dynamic var finished = false
-    let todos = List<ReMyTask>()
+    let todos = List<ReMyTodo>()
     
     override static func primaryKey() -> String? {
         return "id"

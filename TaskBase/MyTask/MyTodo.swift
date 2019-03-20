@@ -15,11 +15,10 @@ struct MyTodo {
     var finished: Bool = false
 }
 
-class ReMyTodo: Object {
+final class ReMyTodo: Object {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var title = ""
     @objc dynamic var finished = false
-    @objc dynamic var myTask: ReMyTask?
 
     override static func primaryKey() -> String? {
         return "id"
