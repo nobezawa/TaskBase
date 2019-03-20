@@ -6,11 +6,25 @@
 //  Copyright © 2019 延澤拓郎. All rights reserved.
 //
 
+import Realm
+import RealmSwift
+
 struct MyTask {
     let id: Int
     let title: String
     let finished: Bool
     let todos: [MyTodo]
+}
+
+class ReMyTask: Object {
+    @objc dynamic var id = UUID().uuidString
+    @objc dynamic var title = ""
+    @objc dynamic var finished = false
+    let todos = List<ReMyTask>()
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 class DemoMyTask {
