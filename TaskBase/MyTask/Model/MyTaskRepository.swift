@@ -22,4 +22,16 @@ final class MyTaskRepository {
             }
         }
     }
+
+    static func updateFinished(taskId: String, value: Bool) {
+        DispatchQueue(label: "jp.cste.taskbase.update.finished", qos: .default).async {
+            autoreleasepool {
+                let realm = try! Realm()
+                let task = realm.object(ofType: ReMyTask.self, forPrimaryKey: taskId)
+                try! realm.write {
+                    task!.finished = value
+                }
+            }
+        }
+    }
 }
