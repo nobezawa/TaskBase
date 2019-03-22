@@ -64,6 +64,13 @@ final class TaskListViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        guard let viewModel = self.viewModel else { return }
+        viewModel.reload()
+    }
 }
 
 extension TaskListViewController: UITableViewDelegate {

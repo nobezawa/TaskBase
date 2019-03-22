@@ -5,6 +5,8 @@
 
 import UIKit
 import RxSwift
+import Realm
+import RealmSwift
 
 protocol MyTaskMediatorProtocol {
     var store: [MyTask] { get set }
@@ -13,14 +15,17 @@ protocol MyTaskMediatorProtocol {
     var currentMyTask: BehaviorSubject<MyTask?> { get }
     var editingTodos: BehaviorSubject<[MyTodo]> { get }
     var afterEditingTodos: [MyTodo] { get }
+    var stackRemoveTodos: [MyTodo] { get }
     var isEditing: BehaviorSubject<Bool> { get }
 
+    func reloadTasks()
     func nextVC(currentVCname: String) -> UIViewController?
     func rootVC() -> UIViewController
     func setCurrentTask(task: MyTask)
     func updateStore(task: MyTask)
     func removeEditingTodo(todo: MyTodo)
     func syncTodoTitle(todo: MyTodo)
+    func updateTodo()
 }
 
 final class MyTaskMediator: MyTaskMediatorProtocol {
@@ -30,10 +35,11 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
     var currentMyTask: BehaviorSubject<MyTask?>
     var editingTodos: BehaviorSubject<[MyTodo]> = BehaviorSubject(value: [])
     var afterEditingTodos: [MyTodo] = []
+    var stackRemoveTodos: [MyTodo] = []
     var isEditing: BehaviorSubject<Bool> = BehaviorSubject(value: false)
 
     init() {
-        let store =  DemoMyTask.sampleTask()
+        let store =  MyTaskMediator.loadTasks()
         self.store = store
         self.subject = BehaviorSubject(value: store)
         self.controllers = MyTaskMediator.initializeVC()
@@ -91,6 +97,7 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
             todos.remove(at: index)
             self.afterEditingTodos.remove(at: index)
             self.editingTodos.onNext(todos)
+            self.stackRemoveTodos.append(todo)
             self.isEditing.onNext(true)
         } catch {
         }
@@ -105,6 +112,24 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
         self.isEditing.onNext(true)
     }
 
+    func updateTodo() {
+        self.afterEditingTodos.forEach { todo in
+            MyTaskRepository.updateTodoTitle(updateTodo: todo)
+        }
+        self.isEditing.onNext(false)
+
+        guard let task = try! self.currentMyTask.value() else { return }
+        var copyTask = task
+        copyTask.todos = self.afterEditingTodos
+        self.currentMyTask.onNext(copyTask)
+    }
+
+    func reloadTasks() {
+        let tasks = MyTaskMediator.loadTasks()
+        self.store = tasks
+        self.subject.onNext(tasks)
+    }
+
     private static func initializeVC() -> [String: UIViewController] {
         let taskListViewController = VCFactory.create(for: .taskList)
         taskListViewController.tabBarItem = UITabBarItem(title: "タスク", image: UIImage(named: "task"), tag: 0)
@@ -117,5 +142,11 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
             "second": todoListViewController,
             "third": editTodoViewController
         ]
+    }
+
+    private static func loadTasks() -> [MyTask] {
+        let realm = try! Realm()
+        let tasks = realm.objects(ReMyTask.self)
+        return Array(tasks).map({ (data: ReMyTask) in data.taskStruct })
     }
 }

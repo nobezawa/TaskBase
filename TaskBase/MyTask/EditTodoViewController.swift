@@ -100,7 +100,7 @@ extension EditTodoViewController {
         .disposed(by: disposeBag)
 
         btn.rx.tap.subscribe(onNext: { _ in
-            print("finish btn")
+            viewModel.updateEditedTodo()
         })
         .disposed(by: disposeBag)
 

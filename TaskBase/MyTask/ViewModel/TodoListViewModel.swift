@@ -59,4 +59,12 @@ final class TodoListViewModel: MyTaskViewModel {
         guard let task = self.currentTask else { return }
         self.mediator.setCurrentTask(task: task)
     }
+
+    func saveTodoState(_ todo: MyTodo) {
+        MyTaskRepository.updateFinished(todoId: todo.id, value: todo.finished)
+    }
+
+    func saveTaskState(_ task: MyTask)  {
+        MyTaskRepository.updateFinished(taskId: task.id, value: task.finished)
+    }
 }

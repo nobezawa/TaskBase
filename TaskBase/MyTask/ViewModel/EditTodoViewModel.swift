@@ -42,4 +42,8 @@ final class EditTodoViewModel: MyTaskViewModel {
         copyTodo.title = updateText
         self.mediator.syncTodoTitle(todo: copyTodo)
     }
+
+    func updateEditedTodo() {
+        self.mediator.updateTodo()
+    }
 }
