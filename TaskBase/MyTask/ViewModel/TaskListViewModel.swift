@@ -47,4 +47,8 @@ final class TaskListViewModel: MyTaskViewModel {
     func tapTask(_ task: MyTask) {
         self.mediator.setCurrentTask(task: task)
     }
+
+    func reload() {
+        self.mediator.reloadTasks()
+    }
 }

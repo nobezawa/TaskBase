@@ -13,7 +13,7 @@ struct MyTask {
     let id: String
     let title: String
     let finished: Bool
-    let todos: [MyTodo]
+    var todos: [MyTodo]
 }
 
 final class ReMyTask: Object {

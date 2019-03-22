@@ -34,4 +34,16 @@ final class MyTaskRepository {
             }
         }
     }
+
+    static func updateTodoTitle(updateTodo: MyTodo) {
+        DispatchQueue(label: "jp.cste.taskbase.update.todo", qos: .default).async {
+            autoreleasepool {
+                let realm = try! Realm()
+                let todo = realm.object(ofType: ReMyTodo.self, forPrimaryKey: updateTodo.id)
+                try! realm.write {
+                    todo!.title = updateTodo.title
+                }
+            }
+        }
+    }
 }

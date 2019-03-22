@@ -15,14 +15,17 @@ protocol MyTaskMediatorProtocol {
     var currentMyTask: BehaviorSubject<MyTask?> { get }
     var editingTodos: BehaviorSubject<[MyTodo]> { get }
     var afterEditingTodos: [MyTodo] { get }
+    var stackRemoveTodos: [MyTodo] { get }
     var isEditing: BehaviorSubject<Bool> { get }
 
+    func reloadTasks()
     func nextVC(currentVCname: String) -> UIViewController?
     func rootVC() -> UIViewController
     func setCurrentTask(task: MyTask)
     func updateStore(task: MyTask)
     func removeEditingTodo(todo: MyTodo)
     func syncTodoTitle(todo: MyTodo)
+    func updateTodo()
 }
 
 final class MyTaskMediator: MyTaskMediatorProtocol {
@@ -32,6 +35,7 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
     var currentMyTask: BehaviorSubject<MyTask?>
     var editingTodos: BehaviorSubject<[MyTodo]> = BehaviorSubject(value: [])
     var afterEditingTodos: [MyTodo] = []
+    var stackRemoveTodos: [MyTodo] = []
     var isEditing: BehaviorSubject<Bool> = BehaviorSubject(value: false)
 
     init() {
@@ -93,6 +97,7 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
             todos.remove(at: index)
             self.afterEditingTodos.remove(at: index)
             self.editingTodos.onNext(todos)
+            self.stackRemoveTodos.append(todo)
             self.isEditing.onNext(true)
         } catch {
         }
@@ -105,6 +110,24 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
         todos[index] = todo
         self.afterEditingTodos = todos
         self.isEditing.onNext(true)
+    }
+
+    func updateTodo() {
+        self.afterEditingTodos.forEach { todo in
+            MyTaskRepository.updateTodoTitle(updateTodo: todo)
+        }
+        self.isEditing.onNext(false)
+
+        guard let task = try! self.currentMyTask.value() else { return }
+        var copyTask = task
+        copyTask.todos = self.afterEditingTodos
+        self.currentMyTask.onNext(copyTask)
+    }
+
+    func reloadTasks() {
+        let tasks = MyTaskMediator.loadTasks()
+        self.store = tasks
+        self.subject.onNext(tasks)
     }
 
     private static func initializeVC() -> [String: UIViewController] {
