@@ -10,7 +10,9 @@
 		3F94E09C6EF62DA4D53DED47 /* MyTaskMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94EA16C92C3BCC706EB829 /* MyTaskMediator.swift */; };
 		3F94E1E29018465AA84BF221 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94EADB24C0E3CC9956791E /* TodoListViewModel.swift */; };
 		3F94E461B5D50838FAC6329D /* MyTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E0509C1B54F31115505E /* MyTaskViewModel.swift */; };
+		3F94E607699021AD0F371F0D /* SearchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94EF876025342E7C69598B /* SearchTask.swift */; };
 		3F94E64A981937F435726183 /* SearchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E89223CBF242478152B7 /* SearchDetailViewModel.swift */; };
+		3F94E76BAD6C852FADF02C30 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E9A24BEBE8FEDF54E6A6 /* SearchListViewModel.swift */; };
 		3F94E8BF389B9D6CE1BB8E06 /* EditTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E311AE046D0F5BA87407 /* EditTodoViewModel.swift */; };
 		6E2200F12239540000E459B7 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2200F02239540000E459B7 /* RxSwift.framework */; };
 		6E2200F4223954BF00E459B7 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2200F3223954BF00E459B7 /* RxCocoa.framework */; };
@@ -35,6 +37,8 @@
 		6E5DDC032237F6FB004F2E65 /* UIColor+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDC022237F6FB004F2E65 /* UIColor+extention.swift */; };
 		6E5DDC082238C3D8004F2E65 /* ImageTextTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDC062238C3D8004F2E65 /* ImageTextTableCell.swift */; };
 		6E5DDC092238C3D8004F2E65 /* ImageTextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E5DDC072238C3D8004F2E65 /* ImageTextTableCell.xib */; };
+		6E61DA482244F5F800DB7726 /* SearchListDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E61DA462244F5F800DB7726 /* SearchListDefaultTableViewCell.swift */; };
+		6E61DA492244F5F800DB7726 /* SearchListDefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E61DA472244F5F800DB7726 /* SearchListDefaultTableViewCell.xib */; };
 		6E945BB32240A942008569E0 /* ImageTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E945BB12240A942008569E0 /* ImageTextFieldTableViewCell.swift */; };
 		6E945BB42240A942008569E0 /* ImageTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E945BB22240A942008569E0 /* ImageTextFieldTableViewCell.xib */; };
 		6EA3DA3D223251A4000E1AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA3C223251A4000E1AAA /* AppDelegate.swift */; };
@@ -63,8 +67,10 @@
 		3F94E0509C1B54F31115505E /* MyTaskViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTaskViewModel.swift; sourceTree = "<group>"; };
 		3F94E311AE046D0F5BA87407 /* EditTodoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTodoViewModel.swift; sourceTree = "<group>"; };
 		3F94E89223CBF242478152B7 /* SearchDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailViewModel.swift; sourceTree = "<group>"; };
+		3F94E9A24BEBE8FEDF54E6A6 /* SearchListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
 		3F94EA16C92C3BCC706EB829 /* MyTaskMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTaskMediator.swift; sourceTree = "<group>"; };
 		3F94EADB24C0E3CC9956791E /* TodoListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
+		3F94EF876025342E7C69598B /* SearchTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTask.swift; sourceTree = "<group>"; };
 		6E2200F02239540000E459B7 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		6E2200F3223954BF00E459B7 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		6E2F5AD922424E9D0076BF9A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -88,6 +94,8 @@
 		6E5DDC022237F6FB004F2E65 /* UIColor+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extention.swift"; sourceTree = "<group>"; };
 		6E5DDC062238C3D8004F2E65 /* ImageTextTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextTableCell.swift; sourceTree = "<group>"; };
 		6E5DDC072238C3D8004F2E65 /* ImageTextTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTextTableCell.xib; sourceTree = "<group>"; };
+		6E61DA462244F5F800DB7726 /* SearchListDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListDefaultTableViewCell.swift; sourceTree = "<group>"; };
+		6E61DA472244F5F800DB7726 /* SearchListDefaultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchListDefaultTableViewCell.xib; sourceTree = "<group>"; };
 		6E945BB12240A942008569E0 /* ImageTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		6E945BB22240A942008569E0 /* ImageTextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		6EA3DA39223251A4000E1AAA /* TaskBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				3F94E89223CBF242478152B7 /* SearchDetailViewModel.swift */,
+				3F94E9A24BEBE8FEDF54E6A6 /* SearchListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -243,6 +252,7 @@
 		6EA3DA582233B176000E1AAA /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				3F94E2B163EC0A4C34082BE0 /* ViewModel */,
 				6EA3DA592233B19E000E1AAA /* SearchListViewController.swift */,
 				6EA3DA5B2233B1CA000E1AAA /* SearchListViewController.storyboard */,
 				6E5DDBE222363995004F2E65 /* SearchListCell.swift */,
@@ -253,7 +263,9 @@
 				6E5DDBEC2236536E004F2E65 /* CategoryModel.swift */,
 				6E5DDBEE2237628A004F2E65 /* SearchDetailViewController.swift */,
 				6E5DDBF02237629E004F2E65 /* SearchDetailViewController.storyboard */,
-				3F94E2B163EC0A4C34082BE0 /* ViewModel */,
+				6E61DA462244F5F800DB7726 /* SearchListDefaultTableViewCell.swift */,
+				6E61DA472244F5F800DB7726 /* SearchListDefaultTableViewCell.xib */,
+				3F94EF876025342E7C69598B /* SearchTask.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -337,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EBFC089223604520052A203 /* EditTodoViewController.storyboard in Resources */,
+				6E61DA492244F5F800DB7726 /* SearchListDefaultTableViewCell.xib in Resources */,
 				6E5DDC002237A0C6004F2E65 /* EditShareViewController.storyboard in Resources */,
 				6E5DDBF12237629E004F2E65 /* SearchDetailViewController.storyboard in Resources */,
 				6EA3DA4A223251A7000E1AAA /* LaunchScreen.storyboard in Resources */,
@@ -404,6 +417,7 @@
 				6EA3DA45223251A4000E1AAA /* TaskBase.xcdatamodeld in Sources */,
 				6EA3DA8722351AB4000E1AAA /* TodoListViewController.swift in Sources */,
 				6EA3DA552233AC48000E1AAA /* TaskListViewController.swift in Sources */,
+				6E61DA482244F5F800DB7726 /* SearchListDefaultTableViewCell.swift in Sources */,
 				6E5DDC082238C3D8004F2E65 /* ImageTextTableCell.swift in Sources */,
 				6EA3DA5A2233B19E000E1AAA /* SearchListViewController.swift in Sources */,
 				6EA3DA832234F51D000E1AAA /* VCFactory.swift in Sources */,
@@ -416,6 +430,8 @@
 				3F94E1E29018465AA84BF221 /* TodoListViewModel.swift in Sources */,
 				3F94E8BF389B9D6CE1BB8E06 /* EditTodoViewModel.swift in Sources */,
 				3F94E64A981937F435726183 /* SearchDetailViewModel.swift in Sources */,
+				3F94E607699021AD0F371F0D /* SearchTask.swift in Sources */,
+				3F94E76BAD6C852FADF02C30 /* SearchListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +457,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6EA3DA4C223251A7000E1AAA /* Debug */ = {
+		6EA3DA4C223251A7000E1AAA /* Dev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -500,7 +516,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = Dev;
 		};
 		6EA3DA4D223251A7000E1AAA /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -557,7 +573,7 @@
 			};
 			name = Release;
 		};
-		6EA3DA4F223251A7000E1AAA /* Debug */ = {
+		6EA3DA4F223251A7000E1AAA /* Dev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -571,12 +587,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cste.jp.TaskBase;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = cste.jp.TaskBase.dev;
+				PRODUCT_NAME = "(Dev) $(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = Dev;
 		};
 		6EA3DA50223251A7000E1AAA /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -605,7 +621,7 @@
 		6EA3DA34223251A4000E1AAA /* Build configuration list for PBXProject "TaskBase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6EA3DA4C223251A7000E1AAA /* Debug */,
+				6EA3DA4C223251A7000E1AAA /* Dev */,
 				6EA3DA4D223251A7000E1AAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -614,7 +630,7 @@
 		6EA3DA4E223251A7000E1AAA /* Build configuration list for PBXNativeTarget "TaskBase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6EA3DA4F223251A7000E1AAA /* Debug */,
+				6EA3DA4F223251A7000E1AAA /* Dev */,
 				6EA3DA50223251A7000E1AAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

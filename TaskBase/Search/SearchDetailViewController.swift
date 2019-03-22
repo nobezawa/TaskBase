@@ -35,7 +35,7 @@ class SearchDetailViewController: UIViewController {
         copyBtn.rx.tap
             .subscribe(onNext: { _ in
                 let viewModel = SearchDetailViewModel()
-                //viewModel.cloneTask()
+                viewModel.cloneTask()
                 //viewModel.selectTask()
                 print("click copy");
             })
