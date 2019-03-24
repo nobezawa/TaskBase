@@ -24,15 +24,23 @@ extension SectionSearchTodo: SectionModelType {
 }
 
 final class SearchDetailViewModel: SearchViewModel {
+    let curentTask: BehaviorRelay<SearchTask?> = BehaviorRelay(value: nil)
     let todos: BehaviorRelay<[SectionSearchTodo]> = BehaviorRelay(value: [])
     let height: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
 
+    private let disposeBag = DisposeBag()
+
     required init(mediator: SearchTaskMediatorProtocol) {
         super.init(mediator: mediator)
-        let data = DemoSearchTodo.sample()
-        self.todos.accept([SectionSearchTodo(items: data)])
-        let height = data.count * 50
-        self.height.accept(CGFloat(height))
+
+        _ = mediator.currentTask.subscribe(onNext: {searchTask in
+            guard let task = searchTask else { return }
+            self.todos.accept([SectionSearchTodo(items: task.todos)])
+            let height = task.todos.count * 50
+            self.height.accept(CGFloat(height))
+            self.curentTask.accept(task)
+        })
+        .disposed(by: disposeBag)
     }
 
 

@@ -35,4 +35,12 @@ final class SearchListViewModel: SearchViewModel {
     func searchDetailVC() -> UIViewController? {
         return mediator.nextVC(getVCName: "searchDetail")
     }
+
+    func searchTasks() -> [SearchTask] {
+        return try! mediator.tasks.value()
+    }
+
+    func setCurrent(task: SearchTask) {
+        mediator.setCurrent(task: task)
+    }
 }

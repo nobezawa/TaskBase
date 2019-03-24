@@ -51,6 +51,16 @@ class SearchDetailViewController: UIViewController {
             .bind(to: todoTableViewHeight.rx.constant)
             .disposed(by: disposeBag)
 
+        viewModel.curentTask
+            .map { $0?.title }
+            .bind(to: titleText.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.curentTask
+            .map{ $0?.description }
+            .bind(to: detailText.rx.text)
+            .disposed(by: disposeBag)
+
         let copyBtn = UIBarButtonItem(title: "コピー", style: .plain, target: nil, action: nil)
         copyBtn.rx.tap
             .subscribe(onNext: { _ in

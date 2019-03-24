@@ -9,15 +9,18 @@ import UIKit
 protocol SearchTaskMediatorProtocol {
     var tasks: BehaviorSubject<[SearchTask]> { get }
     var controllers:[String: UIViewController] { get }
+    var currentTask: BehaviorSubject<SearchTask?> { get }
 
     func rootVC() -> UIViewController
     func prepare()
     func nextVC(getVCName: String) -> UIViewController?
+    func setCurrent(task: SearchTask)
 }
 
 final class SearchTaskMediator: SearchTaskMediatorProtocol {
     var tasks: BehaviorSubject<[SearchTask]>
     var controllers:[String: UIViewController]
+    var currentTask: BehaviorSubject<SearchTask?> = BehaviorSubject(value: nil)
 
     init() {
         self.tasks = BehaviorSubject(value: DemoSearchTask.sample())
@@ -40,6 +43,10 @@ final class SearchTaskMediator: SearchTaskMediatorProtocol {
 
     func nextVC(getVCName: String) -> UIViewController? {
         return controllers[getVCName]
+    }
+
+    func setCurrent(task: SearchTask) {
+        currentTask.onNext(task)
     }
 
     private static func initializeVC() -> [String: UIViewController] {

@@ -59,7 +59,10 @@ final class SearchListViewController: UIViewController {
             .disposed(by: disposeBag)
 
         taskTableView.rx.itemSelected
-            .subscribe(onNext: { _ in
+            .subscribe(onNext: { indexPath in
+                let task = viewModel.searchTasks()[indexPath.row]
+                viewModel.setCurrent(task: task)
+
                 guard let vc = viewModel.searchDetailVC() else { return }
                 self.navigationController?.pushViewController(vc, animated: true)
             })
