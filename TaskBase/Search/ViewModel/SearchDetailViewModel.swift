@@ -3,6 +3,7 @@
 // Copyright (c) 2019 延澤拓郎. All rights reserved.
 //
 
+import UIKit
 import RxSwift
 import RxCocoa
 import Realm
@@ -24,9 +25,13 @@ extension SectionSearchTodo: SectionModelType {
 
 final class SearchDetailViewModel {
     let todos: BehaviorRelay<[SectionSearchTodo]> = BehaviorRelay(value: [])
+    let height: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
+
     init() {
         let data = DemoSearchTodo.sample()
         self.todos.accept([SectionSearchTodo(items: data)])
+        let height = data.count * 50
+        self.height.accept(CGFloat(height))
     }
 
 

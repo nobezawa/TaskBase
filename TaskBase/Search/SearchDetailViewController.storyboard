@@ -55,6 +55,7 @@
                         <outlet property="detailText" destination="YzD-eg-lT2" id="Z6l-Hm-8AJ"/>
                         <outlet property="titleText" destination="JwL-a2-92V" id="drr-at-kjj"/>
                         <outlet property="todoTableView" destination="cBm-aR-SJe" id="a5e-Aq-0Uj"/>
+                        <outlet property="todoTableViewHeight" destination="MJl-GS-JVb" id="rQ7-AM-uve"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONA-hX-QCY" userLabel="First Responder" sceneMemberID="firstResponder"/>

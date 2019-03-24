@@ -21,6 +21,7 @@ class SearchDetailViewController: UIViewController {
             todoTableView.register(nib, forCellReuseIdentifier: cellId)
         }
     }
+    @IBOutlet weak var todoTableViewHeight: NSLayoutConstraint!
 
     private let disposeBag = DisposeBag()
     private let cellId = "SearchDetailTableViewCell"
@@ -43,6 +44,10 @@ class SearchDetailViewController: UIViewController {
 
         viewModel.todos
             .bind(to: todoTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
+        viewModel.height
+            .bind(to: todoTableViewHeight.rx.constant)
             .disposed(by: disposeBag)
 
         let copyBtn = UIBarButtonItem(title: "コピー", style: .plain, target: nil, action: nil)
