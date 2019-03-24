@@ -39,6 +39,8 @@
 		6E5DDC092238C3D8004F2E65 /* ImageTextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E5DDC072238C3D8004F2E65 /* ImageTextTableCell.xib */; };
 		6E61DA482244F5F800DB7726 /* SearchListDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E61DA462244F5F800DB7726 /* SearchListDefaultTableViewCell.swift */; };
 		6E61DA492244F5F800DB7726 /* SearchListDefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E61DA472244F5F800DB7726 /* SearchListDefaultTableViewCell.xib */; };
+		6E61DA4C22463E3F00DB7726 /* SearchDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E61DA4A22463E3F00DB7726 /* SearchDetailTableViewCell.swift */; };
+		6E61DA4D22463E3F00DB7726 /* SearchDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E61DA4B22463E3F00DB7726 /* SearchDetailTableViewCell.xib */; };
 		6E945BB32240A942008569E0 /* ImageTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E945BB12240A942008569E0 /* ImageTextFieldTableViewCell.swift */; };
 		6E945BB42240A942008569E0 /* ImageTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E945BB22240A942008569E0 /* ImageTextFieldTableViewCell.xib */; };
 		6EA3DA3D223251A4000E1AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA3C223251A4000E1AAA /* AppDelegate.swift */; };
@@ -96,9 +98,11 @@
 		6E5DDC072238C3D8004F2E65 /* ImageTextTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTextTableCell.xib; sourceTree = "<group>"; };
 		6E61DA462244F5F800DB7726 /* SearchListDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListDefaultTableViewCell.swift; sourceTree = "<group>"; };
 		6E61DA472244F5F800DB7726 /* SearchListDefaultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchListDefaultTableViewCell.xib; sourceTree = "<group>"; };
+		6E61DA4A22463E3F00DB7726 /* SearchDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailTableViewCell.swift; sourceTree = "<group>"; };
+		6E61DA4B22463E3F00DB7726 /* SearchDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDetailTableViewCell.xib; sourceTree = "<group>"; };
 		6E945BB12240A942008569E0 /* ImageTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		6E945BB22240A942008569E0 /* ImageTextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTextFieldTableViewCell.xib; sourceTree = "<group>"; };
-		6EA3DA39223251A4000E1AAA /* TaskBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EA3DA39223251A4000E1AAA /* TaskBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TaskBase.app; path = "(Dev) TaskBase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA3DA3C223251A4000E1AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EA3DA41223251A4000E1AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6EA3DA44223251A4000E1AAA /* TaskBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskBase.xcdatamodel; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 				6E61DA462244F5F800DB7726 /* SearchListDefaultTableViewCell.swift */,
 				6E61DA472244F5F800DB7726 /* SearchListDefaultTableViewCell.xib */,
 				3F94EF876025342E7C69598B /* SearchTask.swift */,
+				6E61DA4A22463E3F00DB7726 /* SearchDetailTableViewCell.swift */,
+				6E61DA4B22463E3F00DB7726 /* SearchDetailTableViewCell.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 				6EBFC089223604520052A203 /* EditTodoViewController.storyboard in Resources */,
 				6E61DA492244F5F800DB7726 /* SearchListDefaultTableViewCell.xib in Resources */,
 				6E5DDC002237A0C6004F2E65 /* EditShareViewController.storyboard in Resources */,
+				6E61DA4D22463E3F00DB7726 /* SearchDetailTableViewCell.xib in Resources */,
 				6E5DDBF12237629E004F2E65 /* SearchDetailViewController.storyboard in Resources */,
 				6EA3DA4A223251A7000E1AAA /* LaunchScreen.storyboard in Resources */,
 				6E945BB42240A942008569E0 /* ImageTextFieldTableViewCell.xib in Resources */,
@@ -428,6 +435,7 @@
 				3F94E09C6EF62DA4D53DED47 /* MyTaskMediator.swift in Sources */,
 				3F94E461B5D50838FAC6329D /* MyTaskViewModel.swift in Sources */,
 				3F94E1E29018465AA84BF221 /* TodoListViewModel.swift in Sources */,
+				6E61DA4C22463E3F00DB7726 /* SearchDetailTableViewCell.swift in Sources */,
 				3F94E8BF389B9D6CE1BB8E06 /* EditTodoViewModel.swift in Sources */,
 				3F94E64A981937F435726183 /* SearchDetailViewModel.swift in Sources */,
 				3F94E607699021AD0F371F0D /* SearchTask.swift in Sources */,

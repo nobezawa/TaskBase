@@ -25,3 +25,10 @@ class DemoSearchTask {
         return [task1]
     }
 }
+
+class DemoSearchTodo {
+    static func sample() -> [SearchTodo] {
+        let todo1 = SearchTodo(id: "1", title: "納税する")
+        return [todo1]
+    }
+}

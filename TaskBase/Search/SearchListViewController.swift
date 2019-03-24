@@ -24,6 +24,7 @@ final class SearchListViewController: UIViewController {
         let vc = VCFactory.create(for: .filterCategory)
         self.present(vc, animated: true, completion: nil)
     }
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     let tasks = DemoSearchTaskModel.sample()
     let cellId = "SearchListDefaultTableViewCell"
@@ -52,6 +53,10 @@ final class SearchListViewController: UIViewController {
             .bind(to: taskTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
 
+        viewModel.tableViewHeight
+            .bind(to: tableViewHeight.rx.constant)
+            .disposed(by: disposeBag)
+
         taskTableView.rx.itemSelected
             .subscribe(onNext: { _ in
                 let vc = VCFactory.create(for: .searchDetail)
@@ -60,22 +65,5 @@ final class SearchListViewController: UIViewController {
             .disposed(by: disposeBag)
 
     }
-    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return tasks.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell: SearchListCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SearchListCell
-//        let data = tasks[indexPath.row]
-//
-//        cell.titleLabel.text = data.title
-//        cell.countLabel.text = "\(data.count)"
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = VCFactory.create(for: .searchDetail)
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
+
 }

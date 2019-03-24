@@ -3,6 +3,7 @@
 // Copyright (c) 2019 延澤拓郎. All rights reserved.
 //
 
+import UIKit
 import Differentiator
 import RxCocoa
 import RxSwift
@@ -21,9 +22,12 @@ extension SectionSearchTask: SectionModelType {
 
 final class SearchListViewModel {
     let tasks: BehaviorRelay<[SectionSearchTask]> = BehaviorRelay(value: [])
+    let tableViewHeight: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
 
     init() {
         let data = DemoSearchTask.sample()
         self.tasks.accept([SectionSearchTask(items: data)])
+        let height = data.count * 50
+        self.tableViewHeight.accept(CGFloat(height))
     }
 }

@@ -3,10 +3,32 @@
 // Copyright (c) 2019 延澤拓郎. All rights reserved.
 //
 
+import RxSwift
+import RxCocoa
 import Realm
 import RealmSwift
+import Differentiator
+
+struct SectionSearchTodo {
+    var items: [Item]
+}
+
+extension SectionSearchTodo: SectionModelType {
+    typealias Item = SearchTodo
+
+    init(original: SectionSearchTodo, items: [Item]) {
+        self = original
+        self.items = items
+    }
+}
 
 final class SearchDetailViewModel {
+    let todos: BehaviorRelay<[SectionSearchTodo]> = BehaviorRelay(value: [])
+    init() {
+        let data = DemoSearchTodo.sample()
+        self.todos.accept([SectionSearchTodo(items: data)])
+    }
+
 
     // TODO: Remove
     func cloneTask() {
