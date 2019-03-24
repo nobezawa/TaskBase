@@ -39,12 +39,11 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-eR-U9S">
-                                <rect key="frame" x="30" y="110" width="315" height="557"/>
+                                <rect key="frame" x="30" y="110" width="315" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="aW4-QP-HjF" id="6sd-TJ-1LR"/>
-                                    <outlet property="delegate" destination="aW4-QP-HjF" id="rvF-yB-uTn"/>
-                                </connections>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="wnE-mA-30e"/>
+                                </constraints>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,11 +54,11 @@
                             <constraint firstItem="Gze-eR-U9S" firstAttribute="leading" secondItem="MUZ-YB-uvt" secondAttribute="leading" constant="30" id="APP-g6-uBe"/>
                             <constraint firstItem="RB2-yz-EjK" firstAttribute="leading" secondItem="MUZ-YB-uvt" secondAttribute="leading" constant="30" id="MwF-cp-ZdH"/>
                             <constraint firstItem="MUZ-YB-uvt" firstAttribute="trailing" secondItem="Gze-eR-U9S" secondAttribute="trailing" constant="30" id="Pvp-y3-jb4"/>
-                            <constraint firstItem="MUZ-YB-uvt" firstAttribute="bottom" secondItem="Gze-eR-U9S" secondAttribute="bottom" id="u2V-06-2pM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MUZ-YB-uvt"/>
                     </view>
                     <connections>
+                        <outlet property="tableViewHeight" destination="wnE-mA-30e" id="wts-Xv-aHB"/>
                         <outlet property="taskTableView" destination="Gze-eR-U9S" id="iXo-I9-C7s"/>
                     </connections>
                 </viewController>

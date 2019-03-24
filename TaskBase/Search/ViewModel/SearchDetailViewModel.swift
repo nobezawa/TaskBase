@@ -3,10 +3,46 @@
 // Copyright (c) 2019 延澤拓郎. All rights reserved.
 //
 
+import UIKit
+import RxSwift
+import RxCocoa
 import Realm
 import RealmSwift
+import Differentiator
 
-final class SearchDetailViewModel {
+struct SectionSearchTodo {
+    var items: [Item]
+}
+
+extension SectionSearchTodo: SectionModelType {
+    typealias Item = SearchTodo
+
+    init(original: SectionSearchTodo, items: [Item]) {
+        self = original
+        self.items = items
+    }
+}
+
+final class SearchDetailViewModel: SearchViewModel {
+    let curentTask: BehaviorRelay<SearchTask?> = BehaviorRelay(value: nil)
+    let todos: BehaviorRelay<[SectionSearchTodo]> = BehaviorRelay(value: [])
+    let height: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
+
+    private let disposeBag = DisposeBag()
+
+    required init(mediator: SearchTaskMediatorProtocol) {
+        super.init(mediator: mediator)
+
+        _ = mediator.currentTask.subscribe(onNext: {searchTask in
+            guard let task = searchTask else { return }
+            self.todos.accept([SectionSearchTodo(items: task.todos)])
+            let height = task.todos.count * 50
+            self.height.accept(CGFloat(height))
+            self.curentTask.accept(task)
+        })
+        .disposed(by: disposeBag)
+    }
+
 
     // TODO: Remove
     func cloneTask() {

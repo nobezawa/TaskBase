@@ -19,8 +19,9 @@ final class MainTabBarController: UITabBarController {
         let taskListViewController = myTaskMediator.rootVC()
         controllers.append(taskListViewController)
 
-        let searchListViewController = VCFactory.create(for: .searchList)
-        searchListViewController.tabBarItem = UITabBarItem(title: "探す", image: UIImage(named: "search"), tag: 2)
+        let searchTaskMediator = SearchTaskMediator()
+        searchTaskMediator.prepare()
+        let searchListViewController = searchTaskMediator.rootVC()
         controllers.append(searchListViewController)
         
         let shareListViewController = VCFactory.create(for: .shareList)
