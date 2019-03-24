@@ -23,11 +23,12 @@ extension SectionSearchTodo: SectionModelType {
     }
 }
 
-final class SearchDetailViewModel {
+final class SearchDetailViewModel: SearchViewModel {
     let todos: BehaviorRelay<[SectionSearchTodo]> = BehaviorRelay(value: [])
     let height: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
 
-    init() {
+    required init(mediator: SearchTaskMediatorProtocol) {
+        super.init(mediator: mediator)
         let data = DemoSearchTodo.sample()
         self.todos.accept([SectionSearchTodo(items: data)])
         let height = data.count * 50

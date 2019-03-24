@@ -25,6 +25,7 @@ class SearchDetailViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
     private let cellId = "SearchDetailTableViewCell"
+    var viewModel: SearchDetailViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class SearchDetailViewController: UIViewController {
                 return cell
             }
         )
-        let viewModel = SearchDetailViewModel()
+        guard let viewModel = self.viewModel else { return }
 
         viewModel.todos
             .bind(to: todoTableView.rx.items(dataSource: dataSource))

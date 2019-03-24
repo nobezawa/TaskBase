@@ -20,14 +20,19 @@ extension SectionSearchTask: SectionModelType {
     }
 }
 
-final class SearchListViewModel {
+final class SearchListViewModel: SearchViewModel {
     let tasks: BehaviorRelay<[SectionSearchTask]> = BehaviorRelay(value: [])
     let tableViewHeight: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
 
-    init() {
+    required init(mediator: SearchTaskMediatorProtocol) {
+        super.init(mediator: mediator)
         let data = DemoSearchTask.sample()
         self.tasks.accept([SectionSearchTask(items: data)])
         let height = data.count * 50
         self.tableViewHeight.accept(CGFloat(height))
+    }
+
+    func searchDetailVC() -> UIViewController? {
+        return mediator.nextVC(getVCName: "searchDetail")
     }
 }

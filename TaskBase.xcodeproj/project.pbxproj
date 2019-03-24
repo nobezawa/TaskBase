@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3F94E09C6EF62DA4D53DED47 /* MyTaskMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94EA16C92C3BCC706EB829 /* MyTaskMediator.swift */; };
+		3F94E0DD5EDF75BF1DB35F30 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E54ACB054D0F3CA3414C /* SearchViewModel.swift */; };
 		3F94E1E29018465AA84BF221 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94EADB24C0E3CC9956791E /* TodoListViewModel.swift */; };
 		3F94E461B5D50838FAC6329D /* MyTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E0509C1B54F31115505E /* MyTaskViewModel.swift */; };
+		3F94E47E8DAB3EB842B2A406 /* SearchTaskMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94EFA8DF48F477DB0132A6 /* SearchTaskMediator.swift */; };
 		3F94E607699021AD0F371F0D /* SearchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94EF876025342E7C69598B /* SearchTask.swift */; };
 		3F94E64A981937F435726183 /* SearchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E89223CBF242478152B7 /* SearchDetailViewModel.swift */; };
 		3F94E76BAD6C852FADF02C30 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E9A24BEBE8FEDF54E6A6 /* SearchListViewModel.swift */; };
@@ -68,11 +70,13 @@
 /* Begin PBXFileReference section */
 		3F94E0509C1B54F31115505E /* MyTaskViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTaskViewModel.swift; sourceTree = "<group>"; };
 		3F94E311AE046D0F5BA87407 /* EditTodoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTodoViewModel.swift; sourceTree = "<group>"; };
+		3F94E54ACB054D0F3CA3414C /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		3F94E89223CBF242478152B7 /* SearchDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailViewModel.swift; sourceTree = "<group>"; };
 		3F94E9A24BEBE8FEDF54E6A6 /* SearchListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
 		3F94EA16C92C3BCC706EB829 /* MyTaskMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTaskMediator.swift; sourceTree = "<group>"; };
 		3F94EADB24C0E3CC9956791E /* TodoListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
 		3F94EF876025342E7C69598B /* SearchTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTask.swift; sourceTree = "<group>"; };
+		3F94EFA8DF48F477DB0132A6 /* SearchTaskMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTaskMediator.swift; sourceTree = "<group>"; };
 		6E2200F02239540000E459B7 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		6E2200F3223954BF00E459B7 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		6E2F5AD922424E9D0076BF9A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 			children = (
 				3F94E89223CBF242478152B7 /* SearchDetailViewModel.swift */,
 				3F94E9A24BEBE8FEDF54E6A6 /* SearchListViewModel.swift */,
+				3F94E54ACB054D0F3CA3414C /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				3F94EF876025342E7C69598B /* SearchTask.swift */,
 				6E61DA4A22463E3F00DB7726 /* SearchDetailTableViewCell.swift */,
 				6E61DA4B22463E3F00DB7726 /* SearchDetailTableViewCell.xib */,
+				3F94EFA8DF48F477DB0132A6 /* SearchTaskMediator.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -440,6 +446,8 @@
 				3F94E64A981937F435726183 /* SearchDetailViewModel.swift in Sources */,
 				3F94E607699021AD0F371F0D /* SearchTask.swift in Sources */,
 				3F94E76BAD6C852FADF02C30 /* SearchListViewModel.swift in Sources */,
+				3F94E47E8DAB3EB842B2A406 /* SearchTaskMediator.swift in Sources */,
+				3F94E0DD5EDF75BF1DB35F30 /* SearchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

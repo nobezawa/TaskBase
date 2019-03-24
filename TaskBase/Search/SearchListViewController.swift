@@ -26,9 +26,10 @@ final class SearchListViewController: UIViewController {
     }
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
-    let tasks = DemoSearchTaskModel.sample()
-    let cellId = "SearchListDefaultTableViewCell"
     private let disposeBag = DisposeBag()
+    private let cellId = "SearchListDefaultTableViewCell"
+    var viewModel: SearchListViewModel?
+    let tasks = DemoSearchTaskModel.sample()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,7 @@ final class SearchListViewController: UIViewController {
             }
         )
 
-        let viewModel = SearchListViewModel()
+        guard let viewModel = self.viewModel else { return }
 
         viewModel.tasks
             .bind(to: taskTableView.rx.items(dataSource: dataSource))
@@ -59,7 +60,7 @@ final class SearchListViewController: UIViewController {
 
         taskTableView.rx.itemSelected
             .subscribe(onNext: { _ in
-                let vc = VCFactory.create(for: .searchDetail)
+                guard let vc = viewModel.searchDetailVC() else { return }
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: disposeBag)
