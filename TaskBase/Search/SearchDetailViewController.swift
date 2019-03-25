@@ -61,13 +61,16 @@ class SearchDetailViewController: UIViewController {
             .bind(to: detailText.rx.text)
             .disposed(by: disposeBag)
 
+        viewModel.notificationRealm
+            .subscribe(onNext: { _ in
+                print("Alert finish")
+            })
+            .disposed(by: disposeBag)
+
         let copyBtn = UIBarButtonItem(title: "コピー", style: .plain, target: nil, action: nil)
         copyBtn.rx.tap
             .subscribe(onNext: { _ in
-
                 viewModel.cloneTask()
-                //viewModel.selectTask()
-                print("click copy");
             })
             .disposed(by: disposeBag)
 
@@ -76,5 +79,11 @@ class SearchDetailViewController: UIViewController {
         let backBtn = UIBarButtonItem()
         backBtn.title = ""
         self.navigationItem.backBarButtonItem = backBtn
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        viewModel?.token?.invalidate()
     }
 }

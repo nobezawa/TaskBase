@@ -27,50 +27,45 @@ final class SearchDetailViewModel: SearchViewModel {
     let curentTask: BehaviorRelay<SearchTask?> = BehaviorRelay(value: nil)
     let todos: BehaviorRelay<[SectionSearchTodo]> = BehaviorRelay(value: [])
     let height: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
+    let notificationRealm: PublishRelay<Bool> = PublishRelay()
+    var token: NotificationToken?
 
+
+    private let realm = try! Realm()
     private let disposeBag = DisposeBag()
 
     required init(mediator: SearchTaskMediatorProtocol) {
         super.init(mediator: mediator)
 
-        _ = mediator.currentTask.subscribe(onNext: {searchTask in
+        _ = mediator.currentTask.subscribe(onNext: { [weak self] searchTask in
             guard let task = searchTask else { return }
-            self.todos.accept([SectionSearchTodo(items: task.todos)])
+            self?.todos.accept([SectionSearchTodo(items: task.todos)])
             let height = task.todos.count * 50
-            self.height.accept(CGFloat(height))
-            self.curentTask.accept(task)
+            self?.height.accept(CGFloat(height))
+            self?.curentTask.accept(task)
         })
         .disposed(by: disposeBag)
+
+        token = realm.observe { [weak self] _, _ in
+            self?.notificationRealm.accept(true)
+        }
     }
 
-
-    // TODO: Remove
     func cloneTask() {
-        let realm = try! Realm()
-        let todo1 = ReMyTodo()
-        todo1.title = "銀行振り込みをする"
-        let todo2 = ReMyTodo()
-        todo2.title = "青色申告を申請する"
+        guard let task = curentTask.value else { return }
 
-        let task = ReMyTask()
-        task.title = "確定申告のタスク"
-        task.todos.append(todo1)
-        task.todos.append(todo2)
+        let todos = task.todos.map { todo -> ReMyTodo in
+            let reMyTodo = ReMyTodo()
+            reMyTodo.title = todo.title
+            return reMyTodo
+        }
 
-
-        let todo3 = ReMyTodo()
-        todo3.title = "挨拶をする"
-        let todo4 = ReMyTodo()
-        todo4.title = "プロポーズをする"
-
-        let task2 = ReMyTask()
-        task2.title = "ご成婚する"
-        task2.todos.append(todo3)
-        task2.todos.append(todo4)
+        let myTask = ReMyTask()
+        myTask.title = task.title
+        todos.forEach { myTask.todos.append($0) }
 
         try! realm.write {
-            realm.add(task)
-            realm.add(task2)
+            realm.add(myTask)
         }
     }
 
