@@ -23,13 +23,17 @@ extension SectionSearchTask: SectionModelType {
 final class SearchListViewModel: SearchViewModel {
     let tasks: BehaviorRelay<[SectionSearchTask]> = BehaviorRelay(value: [])
     let tableViewHeight: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
+    private let disposeBag = DisposeBag()
 
     required init(mediator: SearchTaskMediatorProtocol) {
         super.init(mediator: mediator)
-        let data = DemoSearchTask.sample()
-        self.tasks.accept([SectionSearchTask(items: data)])
-        let height = data.count * 50
-        self.tableViewHeight.accept(CGFloat(height))
+
+        _ = mediator.tasks.subscribe(onNext: { tasks in
+            self.tasks.accept([SectionSearchTask(items: tasks)])
+            let height = tasks.count * 50
+            self.tableViewHeight.accept(CGFloat(height))
+        })
+        .disposed(by: disposeBag)
     }
 
     func searchDetailVC() -> UIViewController? {

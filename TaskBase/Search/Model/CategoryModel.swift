@@ -16,6 +16,12 @@ struct WorkCategory: CategoryModel {
     var name: String = "仕事"
 }
 
+//extension WorkCategory: Equatable {
+//    static func == (lhs: CategoryModel, rhs: CategoryModel) -> Bool {
+//        return lhs.id == rhs.id
+//    }
+//}
+
 struct LifeCategory: CategoryModel {
     var id: Int = 1
     var name: String = "生活"

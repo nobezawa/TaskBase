@@ -22,7 +22,11 @@ class DemoSearchTask {
         let task1 = SearchTask(id: "1", title: "確定申告", description: "青色申告のタスク", category: WorkCategory(), todos: [
             SearchTodo(id: "1", title: "納税する")
         ])
-        return [task1]
+
+        let task2 = SearchTask(id: "1", title: "結婚式の準備", description: "結婚式のタスク", category: LifeCategory(), todos: [
+            SearchTodo(id: "1", title: "相手を探す")
+        ])
+        return [task1, task2]
     }
 }
 

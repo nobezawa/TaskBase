@@ -41,19 +41,21 @@ class FilterCategoryViewController: UIViewController {
 
         guard let viewModel = self.viewModel else { return }
 
-        viewModel.categories
+        viewModel.categories?
             .bind(to: categoryTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+
+        viewModel.height
+            .bind(to: categoryTableViewHeight.rx.constant)
+            .disposed(by: disposeBag)
+
+        categoryTableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                let category = viewModel.categoryList[indexPath.row]
+                viewModel.filterCategory(category: category)
+                self?.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
     }
-    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return categoryList.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "FilterCategoryCell", for: indexPath)
-//        cell.textLabel?.text = categoryList[indexPath.row].name
-//        return cell
-//    }
 
 }

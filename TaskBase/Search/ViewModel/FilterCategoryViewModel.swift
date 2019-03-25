@@ -3,6 +3,7 @@
 // Copyright (c) 2019 延澤拓郎. All rights reserved.
 //
 
+import UIKit
 import RxSwift
 import Differentiator
 
@@ -20,10 +21,17 @@ extension SectionCategory: SectionModelType {
 }
 
 final class FilterCategoryViewModel: SearchViewModel {
-    let categories: Observable<[SectionCategory]> =
-            Observable.just([SectionCategory(items: [WorkCategory(), LifeCategory()])])
+    let categoryList: [CategoryModel] = [WorkCategory(), LifeCategory()]
+    var categories: Observable<[SectionCategory]>?
+    let height: Observable<CGFloat> = Observable.just(CGFloat(50 * 2))
 
     required init(mediator: SearchTaskMediatorProtocol) {
         super.init(mediator: mediator)
+
+        self.categories = Observable.just([SectionCategory(items: self.categoryList)])
+    }
+
+    func filterCategory(category: CategoryModel) {
+        mediator.filterTasks(category: category)
     }
 }
