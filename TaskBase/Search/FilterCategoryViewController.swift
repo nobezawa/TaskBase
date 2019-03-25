@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class FilterCategoryViewController: UIViewController {
+final class FilterCategoryViewController: UIViewController {
 
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -23,7 +23,7 @@ class FilterCategoryViewController: UIViewController {
             categoryTableView.register(nib, forCellReuseIdentifier: cellId)
         }
     }
-    let categoryList = FilterCategory.list()
+
     private let cellId = "SearchDetailTableViewCell"
     private let disposeBag = DisposeBag()
     var viewModel: FilterCategoryViewModel?

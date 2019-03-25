@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class SearchDetailViewController: UIViewController {
+final class SearchDetailViewController: UIViewController {
 
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var detailText: UILabel!
