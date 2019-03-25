@@ -29,7 +29,6 @@ final class SearchListViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let cellId = "SearchListDefaultTableViewCell"
     var viewModel: SearchListViewModel?
-    let tasks = DemoSearchTaskModel.sample()
 
     override func viewDidLoad() {
         super.viewDidLoad()
