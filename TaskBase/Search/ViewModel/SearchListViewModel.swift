@@ -36,6 +36,10 @@ final class SearchListViewModel: SearchViewModel {
         return mediator.nextVC(getVCName: "searchDetail")
     }
 
+    func categoryVC() -> UIViewController? {
+        return mediator.nextVC(getVCName: "filterCategory")
+    }
+
     func searchTasks() -> [SearchTask] {
         return try! mediator.tasks.value()
     }

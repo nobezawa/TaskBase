@@ -21,7 +21,7 @@ final class SearchListViewController: UIViewController {
     }
 
     @IBAction func categoryButtonTap(_ sender: Any) {
-        let vc = VCFactory.create(for: .filterCategory)
+        guard let vc = viewModel?.categoryVC() else { return }
         self.present(vc, animated: true, completion: nil)
     }
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!

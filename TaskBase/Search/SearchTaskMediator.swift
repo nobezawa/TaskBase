@@ -39,6 +39,10 @@ final class SearchTaskMediator: SearchTaskMediatorProtocol {
         let secondVC = controllers["searchDetail"]! as! SearchDetailViewController
         let secondViewModel = SearchDetailViewModel(mediator: self)
         secondVC.viewModel = secondViewModel
+
+        let thirdVC = controllers["filterCategory"] as! FilterCategoryViewController
+        let thirdViewModel = FilterCategoryViewModel(mediator: self)
+        thirdVC.viewModel = thirdViewModel
     }
 
     func nextVC(getVCName: String) -> UIViewController? {
