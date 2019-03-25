@@ -25,7 +25,7 @@ class SearchDetailViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
     private let cellId = "SearchDetailTableViewCell"
-    private var alert: UIAlertController = SearchDetailViewController.setAlertController()
+    private let alert: UIAlertController = SearchDetailViewController.setAlertController()
 
     var viewModel: SearchDetailViewModel?
 
