@@ -25,6 +25,8 @@ class SearchDetailViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
     private let cellId = "SearchDetailTableViewCell"
+    private let alert: UIAlertController = SearchDetailViewController.setAlertController()
+
     var viewModel: SearchDetailViewModel?
 
     override func viewDidLoad() {
@@ -61,13 +63,17 @@ class SearchDetailViewController: UIViewController {
             .bind(to: detailText.rx.text)
             .disposed(by: disposeBag)
 
+        viewModel.notificationRealm
+            .subscribe(onNext: {[weak self] _ in
+                guard let self = self else { return }
+                self.present(self.alert, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+
         let copyBtn = UIBarButtonItem(title: "コピー", style: .plain, target: nil, action: nil)
         copyBtn.rx.tap
             .subscribe(onNext: { _ in
-
                 viewModel.cloneTask()
-                //viewModel.selectTask()
-                print("click copy");
             })
             .disposed(by: disposeBag)
 
@@ -76,5 +82,21 @@ class SearchDetailViewController: UIViewController {
         let backBtn = UIBarButtonItem()
         backBtn.title = ""
         self.navigationItem.backBarButtonItem = backBtn
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        viewModel?.token?.invalidate()
+    }
+}
+
+extension SearchDetailViewController {
+
+    static func setAlertController() -> UIAlertController {
+        let ua =  UIAlertController(title: "コピーしました", message: "コピーしました", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        ua.addAction(okayButton)
+        return ua
     }
 }
