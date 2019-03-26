@@ -24,7 +24,7 @@ final class FilterCategoryViewController: UIViewController {
         }
     }
 
-    private let cellId = "SearchDetailTableViewCell"
+    private let cellId = "FilterCategoryTableViewCell"
     private let disposeBag = DisposeBag()
     var viewModel: FilterCategoryViewModel?
 
@@ -33,8 +33,9 @@ final class FilterCategoryViewController: UIViewController {
 
         let dataSource = RxTableViewSectionedReloadDataSource<SectionCategory>(
             configureCell: {[weak self] dataSource, tableView, indexPath, item in
-                let cell: SearchDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: self!.cellId, for: indexPath) as! SearchDetailTableViewCell
+                let cell: FilterCategoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: self!.cellId, for: indexPath) as! FilterCategoryTableViewCell
                 cell.titleLabel.text = item.name
+                cell.doneImageView.image = UIImage(named: "done")
                 return cell
             }
         )

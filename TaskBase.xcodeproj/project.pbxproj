@@ -12,9 +12,11 @@
 		3F94E0DD5EDF75BF1DB35F30 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E54ACB054D0F3CA3414C /* SearchViewModel.swift */; };
 		3F94E14E4171AA2BA30FE18B /* SearchListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F94E224D95F2738538F7CE3 /* SearchListCell.xib */; };
 		3F94E1E29018465AA84BF221 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94EADB24C0E3CC9956791E /* TodoListViewModel.swift */; };
+		3F94E33568D1F7F437605D73 /* FilterCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F94E1980D975708AE81319B /* FilterCategoryTableViewCell.xib */; };
 		3F94E34C90A12F20F6F405E5 /* SearchDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E2AE575731A974C0B984 /* SearchDetailTableViewCell.swift */; };
 		3F94E461B5D50838FAC6329D /* MyTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E0509C1B54F31115505E /* MyTaskViewModel.swift */; };
 		3F94E47E8DAB3EB842B2A406 /* SearchTaskMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94EFA8DF48F477DB0132A6 /* SearchTaskMediator.swift */; };
+		3F94E570C2E7CD765AEDEAE7 /* FilterCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E0DFA683DD36D9467E8B /* FilterCategoryTableViewCell.swift */; };
 		3F94E64A981937F435726183 /* SearchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E89223CBF242478152B7 /* SearchDetailViewModel.swift */; };
 		3F94E76BAD6C852FADF02C30 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94E9A24BEBE8FEDF54E6A6 /* SearchListViewModel.swift */; };
 		3F94E7C5E4F814919097D57F /* SearchListDefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F94E4172A4B1DCC58B59F5E /* SearchListDefaultTableViewCell.xib */; };
@@ -69,8 +71,10 @@
 
 /* Begin PBXFileReference section */
 		3F94E0509C1B54F31115505E /* MyTaskViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTaskViewModel.swift; sourceTree = "<group>"; };
+		3F94E0DFA683DD36D9467E8B /* FilterCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		3F94E0F18A81AD4CE2A79FB3 /* SearchDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDetailTableViewCell.xib; sourceTree = "<group>"; };
 		3F94E185931D238618D0113E /* SearchListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchListCell.swift; sourceTree = "<group>"; };
+		3F94E1980D975708AE81319B /* FilterCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		3F94E224D95F2738538F7CE3 /* SearchListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchListCell.xib; sourceTree = "<group>"; };
 		3F94E2AE575731A974C0B984 /* SearchDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailTableViewCell.swift; sourceTree = "<group>"; };
 		3F94E311AE046D0F5BA87407 /* EditTodoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTodoViewModel.swift; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 				3F94E185931D238618D0113E /* SearchListCell.swift */,
 				3F94E4172A4B1DCC58B59F5E /* SearchListDefaultTableViewCell.xib */,
 				3F94EEA05E3C0BC3F0F641A5 /* SearchListDefaultTableViewCell.swift */,
+				3F94E1980D975708AE81319B /* FilterCategoryTableViewCell.xib */,
+				3F94E0DFA683DD36D9467E8B /* FilterCategoryTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,6 +399,7 @@
 				3F94EF25D8A94E85B3633E0E /* SearchDetailTableViewCell.xib in Resources */,
 				3F94E14E4171AA2BA30FE18B /* SearchListCell.xib in Resources */,
 				3F94E7C5E4F814919097D57F /* SearchListDefaultTableViewCell.xib in Resources */,
+				3F94E33568D1F7F437605D73 /* FilterCategoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +471,7 @@
 				3F94E9F7E60D6F4CAC177B0A /* SearchListCell.swift in Sources */,
 				3F94EAE7F1C322AD9BCB2475 /* SearchListDefaultTableViewCell.swift in Sources */,
 				3F94EE0C7C61446A36F8B50D /* FilterCategoryViewModel.swift in Sources */,
+				3F94E570C2E7CD765AEDEAE7 /* FilterCategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

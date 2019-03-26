@@ -31,7 +31,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2PS-yC-vzZ">
-                                <rect key="frame" x="0.0" y="94" width="375" height="200"/>
+                                <rect key="frame" x="10" y="94" width="355" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Xq4-3r-VKJ"/>
@@ -40,11 +40,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="2PS-yC-vzZ" firstAttribute="leading" secondItem="fg8-zV-XaP" secondAttribute="leading" constant="10" id="3fK-FN-QVP"/>
                             <constraint firstItem="NOy-0H-PQG" firstAttribute="top" secondItem="fg8-zV-XaP" secondAttribute="top" id="DjJ-zp-fVi"/>
                             <constraint firstItem="NOy-0H-PQG" firstAttribute="leading" secondItem="fg8-zV-XaP" secondAttribute="leading" id="IKX-uF-Abx"/>
                             <constraint firstAttribute="trailing" secondItem="NOy-0H-PQG" secondAttribute="trailing" id="MZu-vQ-QEu"/>
-                            <constraint firstItem="2PS-yC-vzZ" firstAttribute="leading" secondItem="NOy-0H-PQG" secondAttribute="leading" id="hXt-uz-aQh"/>
-                            <constraint firstItem="fg8-zV-XaP" firstAttribute="trailing" secondItem="2PS-yC-vzZ" secondAttribute="trailing" id="vhD-Ph-K07"/>
+                            <constraint firstAttribute="trailing" secondItem="2PS-yC-vzZ" secondAttribute="trailing" constant="10" id="iia-kk-Mxd"/>
                             <constraint firstItem="2PS-yC-vzZ" firstAttribute="top" secondItem="NOy-0H-PQG" secondAttribute="bottom" constant="30" id="wmH-X8-oOG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fg8-zV-XaP"/>
