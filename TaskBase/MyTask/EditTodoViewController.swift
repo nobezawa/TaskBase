@@ -65,7 +65,7 @@ final class EditTodoViewController: UIViewController {
 
         guard let viewModel = self.viewModel else { return  cell }
 
-        _ = tapGesture.rx.event.subscribe(onNext: { _ in
+        tapGesture.rx.event.subscribe(onNext: { _ in
             viewModel.removeTodo(item)
         })
         .disposed(by: self.disposeBag)
@@ -76,14 +76,14 @@ final class EditTodoViewController: UIViewController {
     private func syncEditingText(cell: ImageTextFieldTableViewCell, item: MyTodo) -> ImageTextFieldTableViewCell {
         cell.cellTextField.text = item.title
         guard let viewModel = self.viewModel else { return  cell }
-        _ = cell.cellTextField.rx.text
-                .skip(1)
-                .subscribe(onNext: { input in
-                    guard let text = input else { return }
-                    //print(text)
-                    viewModel.syncText(todo: item, updateText: text)
-                })
-                .disposed(by: self.disposeBag)
+
+        cell.cellTextField.rx.text
+            .skip(1)
+            .subscribe(onNext: { input in
+                guard let text = input else { return }
+                viewModel.syncText(todo: item, updateText: text)
+            })
+            .disposed(by: self.disposeBag)
 
         return cell
     }

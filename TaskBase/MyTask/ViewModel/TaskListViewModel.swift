@@ -27,16 +27,18 @@ final class TaskListViewModel: MyTaskViewModel {
     var tasks: BehaviorRelay<[SectionMyTask]> = BehaviorRelay(value: [])
     let taskCount: BehaviorRelay<Int> = BehaviorRelay(value: 0)
     var store: [MyTask] = []
+    private let disposeBag = DisposeBag()
 
     required init(mediator: MyTaskMediatorProtocol) {
         super.init(mediator: mediator)
 
-        _ = mediator.subject.subscribe(onNext: { tasks in
+        _ = mediator.subject.subscribe(onNext: { [weak self] tasks in
             let sections = [SectionMyTask(items: tasks)]
-            self.tasks.accept(sections)
-            self.store = tasks
-            self.taskCount.accept(tasks.count)
+            self?.tasks.accept(sections)
+            self?.store = tasks
+            self?.taskCount.accept(tasks.count)
         })
+        .disposed(by: disposeBag)
     }
 
     func nextVC() -> UIViewController? {
