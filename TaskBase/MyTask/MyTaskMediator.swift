@@ -90,17 +90,14 @@ final class MyTaskMediator: MyTaskMediatorProtocol {
     }
 
     func removeEditingTodo(todo: MyTodo) {
-        do {
-            var todos = try self.editingTodos.value()
-            if todos.isEmpty { return }
-            guard let index = todos.firstIndex(where: { $0.id == todo.id}) else { return }
-            todos.remove(at: index)
-            self.afterEditingTodos.remove(at: index)
-            self.editingTodos.onNext(todos)
-            self.stackRemoveTodos.append(todo)
-            self.isEditing.onNext(true)
-        } catch {
-        }
+        var todos = try! self.editingTodos.value()
+        if todos.isEmpty { return }
+        guard let index = todos.firstIndex(where: { $0.id == todo.id}) else { return }
+        todos.remove(at: index)
+        self.afterEditingTodos.remove(at: index)
+        self.editingTodos.onNext(todos)
+        self.stackRemoveTodos.append(todo)
+        self.isEditing.onNext(true)
     }
 
     func syncTodoTitle(todo: MyTodo) {

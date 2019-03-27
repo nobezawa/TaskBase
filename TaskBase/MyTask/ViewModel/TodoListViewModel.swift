@@ -22,27 +22,29 @@ extension SectionMyTodo: SectionModelType {
 
 final class TodoListViewModel: MyTaskViewModel {
     var currentTask: MyTask?
-    var currentTitle: Observable<String?>  = Observable.empty()
-    var todos: BehaviorRelay<[SectionMyTodo]> = BehaviorRelay(value: [])
-    var tableViewHeight: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
+    let currentTitle: BehaviorRelay<String>  = BehaviorRelay(value: "")
+    let todos: BehaviorRelay<[SectionMyTodo]> = BehaviorRelay(value: [])
+    let tableViewHeight: BehaviorRelay<CGFloat> = BehaviorRelay(value: 0)
+    private let disposeBag = DisposeBag()
 
     required init(mediator: MyTaskMediatorProtocol) {
         super.init(mediator: mediator)
 
-        _ = mediator.currentMyTask.subscribe(onNext: { myTask in
+        _ = mediator.currentMyTask.subscribe(onNext: { [weak self] myTask in
+            guard let self = self else { return }
             guard let task = myTask else {
                 self.todos.accept([])
                 self.currentTask = nil
-                self.currentTitle = Observable.just(nil)
                 return
             }
             let sections = [SectionMyTodo(items: task.todos)]
             self.todos.accept(sections)
             self.currentTask = task
-            self.currentTitle = Observable.just(task.title)
+            self.currentTitle.accept(task.title)
             let height = CGFloat(task.todos.count * 50)
             self.tableViewHeight.accept(height)
         })
+        .disposed(by: disposeBag)
     }
 
     func updateFinished(_ task: MyTask) {

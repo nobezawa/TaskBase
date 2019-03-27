@@ -56,6 +56,10 @@ final class TodoListViewController: UIViewController {
             .bind(to: todoTableViewHeight.rx.constant)
             .disposed(by: disposeBag)
 
+        viewModel.currentTitle
+            .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
+
         self.todoTableView.rx.itemSelected
             .subscribe(onNext: {indexPath in
                 guard let task = viewModel.currentTask else { return }
@@ -68,15 +72,6 @@ final class TodoListViewController: UIViewController {
                 viewModel.saveTodoState(todo)
                 if task.finished != nextTask.finished { viewModel.saveTaskState(nextTask) }
             })
-            .disposed(by: disposeBag)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        guard let viewModel = self.viewModel else { return }
-
-        viewModel.currentTitle
-            .bind(to: titleLabel.rx.text)
             .disposed(by: disposeBag)
     }
 }
