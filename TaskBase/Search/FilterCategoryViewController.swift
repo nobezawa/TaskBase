@@ -7,27 +7,56 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 
-class FilterCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class FilterCategoryViewController: UIViewController {
 
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    let categoryList = FilterCategory.list()
+    @IBOutlet weak var categoryTableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var categoryTableView: UITableView! {
+        didSet {
+            let nib = UINib(nibName: cellId, bundle: nil)
+            categoryTableView.register(nib, forCellReuseIdentifier: cellId)
+        }
+    }
+
+    private let cellId = "FilterCategoryTableViewCell"
+    private let disposeBag = DisposeBag()
+    var viewModel: FilterCategoryViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "FilterCategoryCell", for: indexPath)
-        cell.textLabel?.text = categoryList[indexPath.row].name
-        return cell
+        guard let viewModel = self.viewModel else { return }
+
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionCategory>(
+            configureCell: {[weak self] dataSource, tableView, indexPath, item in
+                let cell: FilterCategoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: self!.cellId, for: indexPath) as! FilterCategoryTableViewCell
+                cell.titleLabel.text = item.name
+                cell.doneImageView.image = item.selected ? UIImage(named: "done") : UIImage(named: "not_done")
+                return cell
+            }
+        )
+
+        viewModel.categories
+            .bind(to: categoryTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
+        viewModel.height
+            .bind(to: categoryTableViewHeight.rx.constant)
+            .disposed(by: disposeBag)
+
+        categoryTableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                let category = viewModel.categoryList[indexPath.row]
+                viewModel.filterCategory(category: category)
+                viewModel.updateCategoryView(category: category)
+                self?.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
     }
 
 }

@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class SearchDetailViewController: UIViewController {
+final class SearchDetailViewController: UIViewController {
 
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var detailText: UILabel!
@@ -94,9 +94,9 @@ class SearchDetailViewController: UIViewController {
 extension SearchDetailViewController {
 
     static func setAlertController() -> UIAlertController {
-        let ua =  UIAlertController(title: "コピーしました", message: "コピーしました", preferredStyle: .alert)
+        let ac =  UIAlertController(title: "コピーしました", message: "コピーしました", preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        ua.addAction(okayButton)
-        return ua
+        ac.addAction(okayButton)
+        return ac
     }
 }

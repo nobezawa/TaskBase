@@ -15,15 +15,17 @@ protocol SearchTaskMediatorProtocol {
     func prepare()
     func nextVC(getVCName: String) -> UIViewController?
     func setCurrent(task: SearchTask)
+    func filterTasks(category: CategoryModel?)
 }
 
 final class SearchTaskMediator: SearchTaskMediatorProtocol {
+    let originTasks: [SearchTask] = DemoSearchTask.sample()
     var tasks: BehaviorSubject<[SearchTask]>
     var controllers:[String: UIViewController]
     var currentTask: BehaviorSubject<SearchTask?> = BehaviorSubject(value: nil)
 
     init() {
-        self.tasks = BehaviorSubject(value: DemoSearchTask.sample())
+        self.tasks = BehaviorSubject(value: self.originTasks)
         self.controllers = SearchTaskMediator.initializeVC()
     }
 
@@ -39,6 +41,10 @@ final class SearchTaskMediator: SearchTaskMediatorProtocol {
         let secondVC = controllers["searchDetail"]! as! SearchDetailViewController
         let secondViewModel = SearchDetailViewModel(mediator: self)
         secondVC.viewModel = secondViewModel
+
+        let thirdVC = controllers["filterCategory"] as! FilterCategoryViewController
+        let thirdViewModel = FilterCategoryViewModel(mediator: self)
+        thirdVC.viewModel = thirdViewModel
     }
 
     func nextVC(getVCName: String) -> UIViewController? {
@@ -47,6 +53,16 @@ final class SearchTaskMediator: SearchTaskMediatorProtocol {
 
     func setCurrent(task: SearchTask) {
         currentTask.onNext(task)
+    }
+
+    func filterTasks(category: CategoryModel?) {
+        guard let category = category else {
+            tasks.onNext(self.originTasks)
+            return
+        }
+
+        let filterTasks  = self.originTasks.filter { $0.category.id == category.id }
+        tasks.onNext(filterTasks)
     }
 
     private static func initializeVC() -> [String: UIViewController] {

@@ -9,16 +9,19 @@
 protocol CategoryModel {
     var id: Int { get }
     var name: String { get }
+    var selected: Bool { get set }
 }
 
 struct WorkCategory: CategoryModel {
     var id: Int = 0
     var name: String = "仕事"
+    var selected: Bool = false
 }
 
 struct LifeCategory: CategoryModel {
     var id: Int = 1
     var name: String = "生活"
+    var selected: Bool = false
 }
 
 enum FilterCategory {
