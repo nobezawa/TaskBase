@@ -57,7 +57,7 @@ final class TaskListViewController: UIViewController {
 
         self.taskTableView.rx.itemSelected
             .subscribe(onNext: {[weak self] index  in
-                viewModel.tapTask(viewModel.store[index.row])
+                viewModel.tapTask(index: index.row)
 
                 guard let vc = viewModel.nextVC() else { return }
                 self?.navigationController?.pushViewController(vc, animated: true)

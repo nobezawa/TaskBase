@@ -24,9 +24,8 @@ extension SectionMyTask: SectionModelType {
 }
 
 final class TaskListViewModel: MyTaskViewModel {
-    var tasks: BehaviorRelay<[SectionMyTask]> = BehaviorRelay(value: [])
+    let tasks: BehaviorRelay<[SectionMyTask]> = BehaviorRelay(value: [])
     let taskCount: BehaviorRelay<Int> = BehaviorRelay(value: 0)
-    var store: [MyTask] = []
     private let disposeBag = DisposeBag()
 
     required init(mediator: MyTaskMediatorProtocol) {
@@ -35,7 +34,6 @@ final class TaskListViewModel: MyTaskViewModel {
         _ = mediator.subject.subscribe(onNext: { [weak self] tasks in
             let sections = [SectionMyTask(items: tasks)]
             self?.tasks.accept(sections)
-            self?.store = tasks
             self?.taskCount.accept(tasks.count)
         })
         .disposed(by: disposeBag)
@@ -46,8 +44,12 @@ final class TaskListViewModel: MyTaskViewModel {
         return vc
     }
 
-    func tapTask(_ task: MyTask) {
-        self.mediator.setCurrentTask(task: task)
+    func tapTask(index: Int) {
+        let tasks = self.tasks.value
+        _  = tasks.compactMap { (section: SectionMyTask) in
+            let item = section.items[index]
+            self.mediator.setCurrentTask(task: item)
+        }
     }
 
     func reload() {
