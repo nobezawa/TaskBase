@@ -24,11 +24,6 @@ final class MainTabBarController: UITabBarController {
         let searchListViewController = searchTaskMediator.rootVC()
         controllers.append(searchListViewController)
         
-        let shareListViewController = VCFactory.create(for: .shareList)
-        shareListViewController.tabBarItem = UITabBarItem(title: "共有する", image: UIImage(named: "share"), tag: 3)
-        controllers.append(shareListViewController)
-        
-        
         self.tabBar.barTintColor = UIColor.baseYellow()
         self.tabBar.tintColor = UIColor.textBlack()
 
