@@ -72,9 +72,3 @@ final class TaskListViewController: UIViewController {
         viewModel.reload()
     }
 }
-
-extension TaskListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-}
