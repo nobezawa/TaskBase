@@ -1,6 +1,6 @@
 # TaskBase
 
-| ![画像の説明](https://github.com/nobezawa/TaskBase/wiki/images/screenshot_1.png) | ![画像の説明](https://github.com/nobezawa/TaskBase/wiki/images/screenshot_2.png) | ![画像の説明](https://github.com/nobezawa/TaskBase/wiki/images/screenshot_3.png) |
+![画像の説明](https://github.com/nobezawa/TaskBase/wiki/images/screenshot_1.png)  ![画像の説明](https://github.com/nobezawa/TaskBase/wiki/images/screenshot_2.png) ![画像の説明](https://github.com/nobezawa/TaskBase/wiki/images/screenshot_3.png) 
 
 ## Description  
 
