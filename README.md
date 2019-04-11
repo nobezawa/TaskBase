@@ -3,13 +3,11 @@
 ![画像の説明](https://github.com/nobezawa/TaskBase/wiki/images/screenshot_1.png)  ![画像の説明](https://github.com/nobezawa/TaskBase/wiki/images/screenshot_2.png) ![画像の説明](https://github.com/nobezawa/TaskBase/wiki/images/screenshot_3.png) 
 
 ## Description  
-
-TaskBaseは予め定番のタスクをベースにして、タスク管理ができるiOSアプリです。
-探すのタブから様々な定番なタスクをコピーして自分のタスクとして管理できます。
+TaskBase manage the tasks, which bases basic tasks.
+Copying basic tasks enable you to manage simply the tasks.
 
 ## Feature
-
-シンプルな操作！
+・Mangage simply tasks
 
 ## Requirement
 - Xcode 10.1
@@ -21,6 +19,8 @@ cd TaskBase
 carthage update --platform ios
 ```
 
-## Point
+## Architecture
 - MVVVM / RxSwift
+
+## DB
 - Realm
