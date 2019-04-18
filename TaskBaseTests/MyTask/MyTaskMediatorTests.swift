@@ -18,10 +18,6 @@ class MyTaskMediatorTests: XCTestCase {
         self.mediator = MyTaskMediator()
         self.mediator.prepare()
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
     
     func testRootVC() {
         let vc = self.mediator.rootVC()
@@ -43,12 +39,4 @@ class MyTaskMediatorTests: XCTestCase {
         }
         XCTAssertNil(self.mediator.nextVC(currentVCname: "hoge"))
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

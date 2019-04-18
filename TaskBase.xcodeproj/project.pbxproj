@@ -61,7 +61,6 @@
 		6EBFC087223604230052A203 /* EditTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBFC086223604230052A203 /* EditTodoViewController.swift */; };
 		6EBFC089223604520052A203 /* EditTodoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFC088223604520052A203 /* EditTodoViewController.storyboard */; };
 		6EC8CE7A223A58DA00C15757 /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8CE79223A58DA00C15757 /* TaskListViewModel.swift */; };
-		6EE781DC22678384003AD1E2 /* TaskBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE781DB22678384003AD1E2 /* TaskBaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,7 +131,6 @@
 		6EBFC088223604520052A203 /* EditTodoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditTodoViewController.storyboard; sourceTree = "<group>"; };
 		6EC8CE79223A58DA00C15757 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 		6EE781D922678384003AD1E2 /* TaskBaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskBaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EE781DB22678384003AD1E2 /* TaskBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBaseTests.swift; sourceTree = "<group>"; };
 		6EE781DD22678384003AD1E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -331,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				6EA110072268D8E60088CB3A /* MyTask */,
-				6EE781DB22678384003AD1E2 /* TaskBaseTests.swift */,
 				6EE781DD22678384003AD1E2 /* Info.plist */,
 			);
 			path = TaskBaseTests;
@@ -516,7 +513,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EE781DC22678384003AD1E2 /* TaskBaseTests.swift in Sources */,
 				6EA110092268D92C0088CB3A /* MyTaskMediatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
