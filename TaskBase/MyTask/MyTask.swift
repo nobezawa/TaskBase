@@ -9,11 +9,15 @@
 import Realm
 import RealmSwift
 
-struct MyTask {
+struct MyTask: Equatable {
     let id: String
     let title: String
     let finished: Bool
     var todos: [MyTodo]
+    
+    static func ==(lhs: MyTask, rhs: MyTask) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 final class ReMyTask: Object {

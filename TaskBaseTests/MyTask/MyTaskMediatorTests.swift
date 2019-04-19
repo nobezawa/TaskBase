@@ -39,4 +39,11 @@ class MyTaskMediatorTests: XCTestCase {
         }
         XCTAssertNil(self.mediator.nextVC(currentVCname: "hoge"))
     }
+    
+    func testSetCurrentTask() {
+        let todos = [MyTodo(id: "1", title: "test", finished: false)]
+        let task = MyTask(id: "1", title: "test", finished: false, todos: todos)
+        self.mediator.setCurrentTask(task: task)
+        XCTAssertEqual(self.mediator.afterEditingTodos.count, todos.count)
+    }
 }
