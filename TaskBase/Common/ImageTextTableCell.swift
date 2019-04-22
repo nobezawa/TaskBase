@@ -10,6 +10,10 @@ import UIKit
 
 class ImageTextTableCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.lineBreakMode = .byCharWrapping
+        }
+    }
     @IBOutlet weak var cellImage: UIImageView!
 }
