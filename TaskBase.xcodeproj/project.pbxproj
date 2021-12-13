@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,10 +26,6 @@
 		3F94ECD311FC90B6DCB388A9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94EFCF2CA8E7285AAAC26C /* CategoryModel.swift */; };
 		3F94EE0C7C61446A36F8B50D /* FilterCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94ECD250E2C78CE51751DF /* FilterCategoryViewModel.swift */; };
 		3F94EF25D8A94E85B3633E0E /* SearchDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F94E0F18A81AD4CE2A79FB3 /* SearchDetailTableViewCell.xib */; };
-		6E2200F12239540000E459B7 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2200F02239540000E459B7 /* RxSwift.framework */; };
-		6E2200F4223954BF00E459B7 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2200F3223954BF00E459B7 /* RxCocoa.framework */; };
-		6E2F5ADA22424E9D0076BF9A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2F5AD922424E9D0076BF9A /* RealmSwift.framework */; };
-		6E2F5ADC22424EE50076BF9A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2F5ADB22424EE50076BF9A /* Realm.framework */; };
 		6E2F5ADF2242575C0076BF9A /* MyTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2F5ADE2242575C0076BF9A /* MyTaskRepository.swift */; };
 		6E5DDBE922364F7C004F2E65 /* FilterCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5DDBE822364F7C004F2E65 /* FilterCategoryViewController.swift */; };
 		6E5DDBEB22364F9A004F2E65 /* FilterCategoryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E5DDBEA22364F9A004F2E65 /* FilterCategoryViewController.storyboard */; };
@@ -56,12 +52,26 @@
 		6EA3DA8722351AB4000E1AAA /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA8622351AB4000E1AAA /* TodoListViewController.swift */; };
 		6EA3DA8922351AE8000E1AAA /* TodoListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EA3DA8822351AE8000E1AAA /* TodoListViewController.storyboard */; };
 		6EA3DA8B2235E017000E1AAA /* MyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3DA8A2235E017000E1AAA /* MyTask.swift */; };
-		6EA670FE223A08B800B60BF8 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA670FD223A08B700B60BF8 /* RxDataSources.framework */; };
-		6EA67100223A09C700B60BF8 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA670FF223A09C700B60BF8 /* Differentiator.framework */; };
 		6EBFC085223602860052A203 /* MyTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBFC084223602860052A203 /* MyTodo.swift */; };
 		6EBFC087223604230052A203 /* EditTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBFC086223604230052A203 /* EditTodoViewController.swift */; };
 		6EBFC089223604520052A203 /* EditTodoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFC088223604520052A203 /* EditTodoViewController.storyboard */; };
 		6EC8CE7A223A58DA00C15757 /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8CE79223A58DA00C15757 /* TaskListViewModel.swift */; };
+		DE6744F7276737A400F32DF6 /* Differentiator.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE6744F6276737A400F32DF6 /* Differentiator.xcframework */; };
+		DE6744F8276737A400F32DF6 /* Differentiator.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE6744F6276737A400F32DF6 /* Differentiator.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE6744FC276737B900F32DF6 /* Realm.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE6744FA276737B900F32DF6 /* Realm.xcframework */; };
+		DE6744FD276737B900F32DF6 /* Realm.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE6744FA276737B900F32DF6 /* Realm.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE6744FE276737B900F32DF6 /* RealmSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE6744FB276737B900F32DF6 /* RealmSwift.xcframework */; };
+		DE6744FF276737B900F32DF6 /* RealmSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE6744FB276737B900F32DF6 /* RealmSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE674503276737D500F32DF6 /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE674500276737D500F32DF6 /* RxCocoa.xcframework */; };
+		DE674504276737D500F32DF6 /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE674500276737D500F32DF6 /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE674505276737D500F32DF6 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE674501276737D500F32DF6 /* RxSwift.xcframework */; };
+		DE674506276737D500F32DF6 /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE674501276737D500F32DF6 /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE674507276737D500F32DF6 /* RxDataSources.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE674502276737D500F32DF6 /* RxDataSources.xcframework */; };
+		DE674508276737D500F32DF6 /* RxDataSources.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE674502276737D500F32DF6 /* RxDataSources.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE67450A2767380D00F32DF6 /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE6745092767380D00F32DF6 /* RxRelay.xcframework */; };
+		DE67450B2767380D00F32DF6 /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE6745092767380D00F32DF6 /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE67450D27673D1400F32DF6 /* RxBlocking.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE67450C27673D1400F32DF6 /* RxBlocking.xcframework */; };
+		DE67450E27673D1400F32DF6 /* RxBlocking.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE67450C27673D1400F32DF6 /* RxBlocking.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +83,27 @@
 			remoteInfo = TaskBase;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DE6744F9276737A400F32DF6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DE67450E27673D1400F32DF6 /* RxBlocking.xcframework in Embed Frameworks */,
+				DE674506276737D500F32DF6 /* RxSwift.xcframework in Embed Frameworks */,
+				DE6744F8276737A400F32DF6 /* Differentiator.xcframework in Embed Frameworks */,
+				DE674508276737D500F32DF6 /* RxDataSources.xcframework in Embed Frameworks */,
+				DE674504276737D500F32DF6 /* RxCocoa.xcframework in Embed Frameworks */,
+				DE6744FF276737B900F32DF6 /* RealmSwift.xcframework in Embed Frameworks */,
+				DE6744FD276737B900F32DF6 /* Realm.xcframework in Embed Frameworks */,
+				DE67450B2767380D00F32DF6 /* RxRelay.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3F94E0509C1B54F31115505E /* MyTaskViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTaskViewModel.swift; sourceTree = "<group>"; };
@@ -94,10 +125,6 @@
 		3F94EEA05E3C0BC3F0F641A5 /* SearchListDefaultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchListDefaultTableViewCell.swift; sourceTree = "<group>"; };
 		3F94EFA8DF48F477DB0132A6 /* SearchTaskMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTaskMediator.swift; sourceTree = "<group>"; };
 		3F94EFCF2CA8E7285AAAC26C /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
-		6E2200F02239540000E459B7 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		6E2200F3223954BF00E459B7 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		6E2F5AD922424E9D0076BF9A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		6E2F5ADB22424EE50076BF9A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		6E2F5ADE2242575C0076BF9A /* MyTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTaskRepository.swift; sourceTree = "<group>"; };
 		6E5DDBE822364F7C004F2E65 /* FilterCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategoryViewController.swift; sourceTree = "<group>"; };
 		6E5DDBEA22364F9A004F2E65 /* FilterCategoryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilterCategoryViewController.storyboard; sourceTree = "<group>"; };
@@ -110,7 +137,7 @@
 		6E945BB22240A942008569E0 /* ImageTextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		6EA110082268D92C0088CB3A /* MyTaskMediatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTaskMediatorTests.swift; sourceTree = "<group>"; };
 		6EA1100B226977A70088CB3A /* SearchTaskMediatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTaskMediatorTests.swift; sourceTree = "<group>"; };
-		6EA3DA39223251A4000E1AAA /* (Dev) TaskBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(Dev) TaskBase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EA3DA39223251A4000E1AAA /* TaskBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA3DA3C223251A4000E1AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EA3DA41223251A4000E1AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6EA3DA44223251A4000E1AAA /* TaskBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskBase.xcdatamodel; sourceTree = "<group>"; };
@@ -126,14 +153,20 @@
 		6EA3DA8622351AB4000E1AAA /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		6EA3DA8822351AE8000E1AAA /* TodoListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TodoListViewController.storyboard; sourceTree = "<group>"; };
 		6EA3DA8A2235E017000E1AAA /* MyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTask.swift; sourceTree = "<group>"; };
-		6EA670FD223A08B700B60BF8 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
-		6EA670FF223A09C700B60BF8 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
 		6EBFC084223602860052A203 /* MyTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodo.swift; sourceTree = "<group>"; };
 		6EBFC086223604230052A203 /* EditTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTodoViewController.swift; sourceTree = "<group>"; };
 		6EBFC088223604520052A203 /* EditTodoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditTodoViewController.storyboard; sourceTree = "<group>"; };
 		6EC8CE79223A58DA00C15757 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 		6EE781D922678384003AD1E2 /* TaskBaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskBaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE781DD22678384003AD1E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE6744F6276737A400F32DF6 /* Differentiator.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Differentiator.xcframework; path = Carthage/Build/Differentiator.xcframework; sourceTree = "<group>"; };
+		DE6744FA276737B900F32DF6 /* Realm.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Realm.xcframework; path = Carthage/Build/Realm.xcframework; sourceTree = "<group>"; };
+		DE6744FB276737B900F32DF6 /* RealmSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RealmSwift.xcframework; path = Carthage/Build/RealmSwift.xcframework; sourceTree = "<group>"; };
+		DE674500276737D500F32DF6 /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxCocoa.xcframework; path = Carthage/Build/RxCocoa.xcframework; sourceTree = "<group>"; };
+		DE674501276737D500F32DF6 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
+		DE674502276737D500F32DF6 /* RxDataSources.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxDataSources.xcframework; path = Carthage/Build/RxDataSources.xcframework; sourceTree = "<group>"; };
+		DE6745092767380D00F32DF6 /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = Carthage/Build/RxRelay.xcframework; sourceTree = "<group>"; };
+		DE67450C27673D1400F32DF6 /* RxBlocking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxBlocking.xcframework; path = Carthage/Build/RxBlocking.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,12 +174,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E2F5ADC22424EE50076BF9A /* Realm.framework in Frameworks */,
-				6E2F5ADA22424E9D0076BF9A /* RealmSwift.framework in Frameworks */,
-				6EA67100223A09C700B60BF8 /* Differentiator.framework in Frameworks */,
-				6EA670FE223A08B800B60BF8 /* RxDataSources.framework in Frameworks */,
-				6E2200F4223954BF00E459B7 /* RxCocoa.framework in Frameworks */,
-				6E2200F12239540000E459B7 /* RxSwift.framework in Frameworks */,
+				DE67450D27673D1400F32DF6 /* RxBlocking.xcframework in Frameworks */,
+				DE674505276737D500F32DF6 /* RxSwift.xcframework in Frameworks */,
+				DE6744F7276737A400F32DF6 /* Differentiator.xcframework in Frameworks */,
+				DE674507276737D500F32DF6 /* RxDataSources.xcframework in Frameworks */,
+				DE674503276737D500F32DF6 /* RxCocoa.xcframework in Frameworks */,
+				DE6744FE276737B900F32DF6 /* RealmSwift.xcframework in Frameworks */,
+				DE6744FC276737B900F32DF6 /* Realm.xcframework in Frameworks */,
+				DE67450A2767380D00F32DF6 /* RxRelay.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,12 +233,14 @@
 		6E2200EF2239540000E459B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6E2F5ADB22424EE50076BF9A /* Realm.framework */,
-				6E2F5AD922424E9D0076BF9A /* RealmSwift.framework */,
-				6EA670FF223A09C700B60BF8 /* Differentiator.framework */,
-				6EA670FD223A08B700B60BF8 /* RxDataSources.framework */,
-				6E2200F3223954BF00E459B7 /* RxCocoa.framework */,
-				6E2200F02239540000E459B7 /* RxSwift.framework */,
+				DE67450C27673D1400F32DF6 /* RxBlocking.xcframework */,
+				DE6745092767380D00F32DF6 /* RxRelay.xcframework */,
+				DE674500276737D500F32DF6 /* RxCocoa.xcframework */,
+				DE674502276737D500F32DF6 /* RxDataSources.xcframework */,
+				DE674501276737D500F32DF6 /* RxSwift.xcframework */,
+				DE6744FA276737B900F32DF6 /* Realm.xcframework */,
+				DE6744FB276737B900F32DF6 /* RealmSwift.xcframework */,
+				DE6744F6276737A400F32DF6 /* Differentiator.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -257,7 +294,7 @@
 		6EA3DA3A223251A4000E1AAA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6EA3DA39223251A4000E1AAA /* (Dev) TaskBase.app */,
+				6EA3DA39223251A4000E1AAA /* TaskBase.app */,
 				6EE781D922678384003AD1E2 /* TaskBaseTests.xctest */,
 			);
 			name = Products;
@@ -355,7 +392,7 @@
 				6EA3DA35223251A4000E1AAA /* Sources */,
 				6EA3DA36223251A4000E1AAA /* Frameworks */,
 				6EA3DA37223251A4000E1AAA /* Resources */,
-				6E2200F22239542300E459B7 /* ShellScript */,
+				DE6744F9276737A400F32DF6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -363,7 +400,7 @@
 			);
 			name = TaskBase;
 			productName = TaskBase;
-			productReference = 6EA3DA39223251A4000E1AAA /* (Dev) TaskBase.app */;
+			productReference = 6EA3DA39223251A4000E1AAA /* TaskBase.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6EE781D822678384003AD1E2 /* TaskBaseTests */ = {
@@ -391,7 +428,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = "延澤拓郎";
 				TargetAttributes = {
 					6EA3DA38223251A4000E1AAA = {
@@ -453,32 +490,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		6E2200F22239542300E459B7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6EA3DA35223251A4000E1AAA /* Sources */ = {
@@ -585,6 +596,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -597,6 +609,7 @@
 				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -611,7 +624,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -647,6 +660,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -658,6 +672,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -666,7 +681,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -680,9 +695,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = KB4342BUJ6;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -694,9 +709,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cste.jp.TaskBase.dev;
 				PRODUCT_MODULE_NAME = TaskBase;
-				PRODUCT_NAME = "(Dev) $(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Dev;
 		};
@@ -704,8 +720,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KB4342BUJ6;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -717,8 +733,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cste.jp.TaskBase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
