@@ -701,7 +701,7 @@
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/**",
 				);
 				INFOPLIST_FILE = TaskBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -725,7 +725,7 @@
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/**",
 				);
 				INFOPLIST_FILE = TaskBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
